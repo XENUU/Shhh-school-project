@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Shhh — Sleep, uninterrupted</title>
+<meta name="description" content="Shhh companion app: AI sleep analysis and automatic tuning for Shhh smart earplugs.">
+<meta name="theme-color" content="#0A0E1F">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Shhh">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g%27%20cx%3D%2750%25%27%20cy%3D%2740%25%27%20r%3D%2765%25%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%233b3585%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%230A0E1F%27%2F%3E%3C%2FradialGradient%3E%3ClinearGradient%20id%3D%27m%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23D5CFFF%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%238B7FE0%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%27512%27%20height%3D%27512%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Cpath%20d%3D%27M318%20120A140%20140%200%201%200%20400%20346%20112%20112%200%200%201%20318%20120Z%27%20fill%3D%27url%28%23m%29%27%2F%3E%3Cpath%20d%3D%27M372%20142l7%2021%2021%207-21%207-7%2021-7-21-21-7%2021-7z%27%20fill%3D%27%23EDEBF5%27%2F%3E%3C%2Fsvg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g%27%20cx%3D%2750%25%27%20cy%3D%2740%25%27%20r%3D%2765%25%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%233b3585%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%230A0E1F%27%2F%3E%3C%2FradialGradient%3E%3ClinearGradient%20id%3D%27m%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23D5CFFF%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%238B7FE0%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%27512%27%20height%3D%27512%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Cpath%20d%3D%27M318%20120A140%20140%200%201%200%20400%20346%20112%20112%200%200%201%20318%20120Z%27%20fill%3D%27url%28%23m%29%27%2F%3E%3Cpath%20d%3D%27M372%20142l7%2021%2021%207-21%207-7%2021-7-21-21-7%2021-7z%27%20fill%3D%27%23EDEBF5%27%2F%3E%3C%2Fsvg%3E">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Shhh%22%2C%22short_name%22%3A%22Shhh%22%2C%22description%22%3A%22Sleep%2C%20uninterrupted.%20Powered%20by%20AI.%22%2C%22display%22%3A%22standalone%22%2C%22orientation%22%3A%22portrait%22%2C%22background_color%22%3A%22%230A0E1F%22%2C%22theme_color%22%3A%22%230A0E1F%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%253D%2527http%253A%252F%252Fwww.w3.org%252F2000%252Fsvg%2527%2520viewBox%253D%25270%25200%2520512%2520512%2527%253E%253Cdefs%253E%253CradialGradient%2520id%253D%2527g%2527%2520cx%253D%252750%2525%2527%2520cy%253D%252740%2525%2527%2520r%253D%252765%2525%2527%253E%253Cstop%2520offset%253D%25270%2527%2520stop-color%253D%2527%25233b3585%2527%252F%253E%253Cstop%2520offset%253D%25271%2527%2520stop-color%253D%2527%25230A0E1F%2527%252F%253E%253C%252FradialGradient%253E%253ClinearGradient%2520id%253D%2527m%2527%2520x1%253D%25270%2527%2520y1%253D%25270%2527%2520x2%253D%25271%2527%2520y2%253D%25271%2527%253E%253Cstop%2520offset%253D%25270%2527%2520stop-color%253D%2527%2523D5CFFF%2527%252F%253E%253Cstop%2520offset%253D%25271%2527%2520stop-color%253D%2527%25238B7FE0%2527%252F%253E%253C%252FlinearGradient%253E%253C%252Fdefs%253E%253Crect%2520width%253D%2527512%2527%2520height%253D%2527512%2527%2520fill%253D%2527url%2528%2523g%2529%2527%252F%253E%253Cpath%2520d%253D%2527M318%2520120A140%2520140%25200%25201%25200%2520400%2520346%2520112%2520112%25200%25200%25201%2520318%2520120Z%2527%2520fill%253D%2527url%2528%2523m%2529%2527%252F%253E%253Cpath%2520d%253D%2527M372%2520142l7%252021%252021%25207-21%25207-7%252021-7-21-21-7%252021-7z%2527%2520fill%253D%2527%2523EDEBF5%2527%252F%253E%253C%252Fsvg%253E%22%2C%22sizes%22%3A%22any%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%22%7D%5D%7D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    fontFamily: { sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'] },
+    colors: { night: '#0A0E1F', surface: '#111833', card: '#161D3B', lav: '#8B7FE0', moon: '#EDEBF5', haze: '#9C99AE' }
+  } } };
+</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
+<style>
+:root{--bg:#0A0E1F;--bg2:#111833;--card:#161D3B;--line:rgba(255,255,255,.06);--accent:#8B7FE0;--accent2:#A89EF0;--title:#EDEBF5;--body:#9C99AE;--mute:#6F6D88;--ok:#7BD8B4;--warn:#E8B77A}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--body);font-family:Inter,-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow:hidden;overscroll-behavior:none;-webkit-text-size-adjust:100%}
+button{font-family:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0;text-align:inherit}
+button:focus-visible,input:focus-visible,[role=slider]:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+input{font-family:inherit;color-scheme:dark}
+::selection{background:rgba(139,127,224,.4)}
+#root{position:fixed;inset:0}
+.boot{position:fixed;inset:0;background:radial-gradient(circle at 50% 45%,rgba(139,127,224,.18),transparent 55%),#0A0E1F}
+
+/* ---------- stage / frame ---------- */
+.stage{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse 70% 55% at 50% 38%,#181b40 0%,#0d1129 55%,#0A0E1F 100%)}
+.stage .glow{position:absolute;left:50%;top:46%;width:760px;height:760px;margin:-380px 0 0 -380px;border-radius:50%;background:radial-gradient(circle,rgba(139,127,224,.16),transparent 62%);pointer-events:none}
+.stars{position:absolute;left:0;top:0;width:2px;height:2px;border-radius:50%;background:transparent;pointer-events:none}
+.stage-cap{margin-top:16px;font-size:13px;color:var(--mute);letter-spacing:.02em;position:relative}
+.phone-box{position:relative;flex:none}
+.phone-scale{position:absolute;left:0;top:0;transform-origin:top left}
+.bezel{position:relative;width:414px;height:868px;padding:12px;border-radius:64px;background:linear-gradient(145deg,#2a2e45,#0b0d18 40%,#1c2036);box-shadow:0 0 0 1.5px #3a3f5e,0 0 0 3px #07080f,0 40px 90px -20px rgba(0,0,0,.8),0 0 120px -30px rgba(139,127,224,.35)}
+.bezel .btn-side{position:absolute;width:4px;border-radius:3px;background:#2a2e45}
+.island{position:absolute;top:11px;left:50%;width:118px;height:34px;margin-left:-59px;border-radius:20px;background:#000;z-index:300;pointer-events:none}
+.statusbar{position:absolute;top:0;left:0;right:0;height:54px;z-index:290;display:flex;align-items:center;justify-content:space-between;padding:6px 34px 0 40px;font-size:15px;font-weight:600;color:var(--title);pointer-events:none}
+.statusbar .sb-r{display:flex;gap:6px;align-items:center}
+.home-ind{position:absolute;bottom:7px;left:50%;width:134px;height:5px;margin-left:-67px;border-radius:3px;background:rgba(237,235,245,.55);z-index:290;pointer-events:none}
+
+/* ---------- app shell ---------- */
+.app{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;background:var(--bg);--sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px);--tab:62px;isolation:isolate}
+.app.framed{width:390px;height:844px;border-radius:52px;--sat:54px;--sab:22px}
+.screen{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:calc(var(--sat) + 14px) 20px calc(var(--tab) + var(--sab) + 30px);scrollbar-width:none}
+.screen::-webkit-scrollbar{display:none}
+.screen-enter{animation:screenIn .42s cubic-bezier(.2,.8,.2,1) both}
+.rise{animation:rise .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*55ms)}
+@keyframes screenIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+@keyframes pulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes ping{0%{transform:scale(.6);opacity:.7}100%{transform:scale(2.2);opacity:0}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes dots{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+
+.tabbar{position:absolute;left:0;right:0;bottom:0;z-index:40;display:flex;padding:6px 6px var(--sab);height:calc(var(--tab) + var(--sab));background:rgba(10,14,31,.72);-webkit-backdrop-filter:blur(24px) saturate(170%);backdrop-filter:blur(24px) saturate(170%);border-top:1px solid var(--line)}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:48px;font-size:10.5px;font-weight:600;letter-spacing:.01em;color:#6F6D88;transition:color .25s,transform .15s}
+.tab:active{transform:scale(.92)}
+.tab svg{transition:transform .35s cubic-bezier(.3,1.6,.5,1),filter .3s}
+.tab.active{color:var(--accent2)}
+.tab.active svg{transform:translateY(-1px) scale(1.08);filter:drop-shadow(0 0 8px rgba(139,127,224,.7))}
+
+/* ---------- type ---------- */
+.h1{font-size:30px;font-weight:800;letter-spacing:-.035em;line-height:1.08;color:var(--title)}
+.h2{font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--title);line-height:1.2}
+.h3{font-size:15.5px;font-weight:600;color:var(--title);letter-spacing:-.01em}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.body{font-size:14.5px;line-height:1.58;color:var(--body)}
+.small{font-size:12.5px;line-height:1.5;color:var(--body)}
+.mute{font-size:12px;line-height:1.5;color:var(--mute)}
+.title-c{color:var(--title)}
+.num{font-variant-numeric:tabular-nums}
+.logo{display:inline-flex;align-items:center;font-weight:800;letter-spacing:-.045em;color:#fff;line-height:1}
+.logo svg{margin-left:.08em;width:.62em;height:.62em;flex:none}
+
+/* ---------- cards ---------- */
+.stack{display:flex;flex-direction:column;gap:14px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px}
+.card.pad-sm{padding:14px}
+.card-ai{position:relative;isolation:isolate;background:linear-gradient(180deg,rgba(139,127,224,.09),rgba(22,29,59,0) 55%),var(--card);border:1px solid transparent;border-radius:22px;padding:18px;box-shadow:0 20px 50px -30px rgba(139,127,224,.55)}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+.card-ai::before{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:conic-gradient(from var(--ang),rgba(139,127,224,.08),rgba(168,158,240,.95) 18%,rgba(110,150,255,.55) 34%,rgba(139,127,224,.08) 52%,rgba(139,127,224,.08));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask-composite:exclude;animation:ang 7s linear infinite;pointer-events:none;z-index:-1}
+@keyframes ang{to{--ang:360deg}}
+.hl{animation:hl 1.4s ease-in-out 3}
+@keyframes hl{0%,100%{box-shadow:0 20px 50px -30px rgba(139,127,224,.55)}50%{box-shadow:0 0 0 3px rgba(168,158,240,.45),0 0 40px rgba(139,127,224,.55)}}
+.ai-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px 3px 6px;border-radius:99px;background:rgba(139,127,224,.16);color:#BDB4FA;font-size:10.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;border:1px solid rgba(139,127,224,.25)}
+.ai-badge svg{animation:pulse 2.6s ease-in-out infinite}
+.row{display:flex;align-items:center}
+.between{justify-content:space-between}
+.gap2{gap:8px}.gap3{gap:12px}.gap4{gap:16px}
+.hr{height:1px;background:var(--line);margin:14px 0}
+.ico{width:40px;height:40px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(139,127,224,.14);color:var(--accent2);flex:none}
+.ico.sm{width:34px;height:34px;border-radius:12px}
+.ico.mute{background:rgba(255,255,255,.06);color:var(--body)}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px;font-size:11.5px;font-weight:600;background:rgba(123,216,180,.12);color:var(--ok)}
+.pill.lav{background:rgba(139,127,224,.16);color:#BDB4FA}
+.pill.warn{background:rgba(232,183,122,.14);color:var(--warn)}
+.pill.grey{background:rgba(255,255,255,.07);color:var(--body)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok);flex:none}
+
+/* ---------- buttons ---------- */
+.btn{min-height:46px;padding:0 20px;border-radius:16px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s ease,box-shadow .25s,background .25s,opacity .2s,border-color .25s;white-space:nowrap;text-align:center;color:var(--title)}
+.btn:active:not(:disabled){transform:scale(.96)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn-primary{background:linear-gradient(180deg,#9A8FEA,#8B7FE0);color:#fff;box-shadow:0 12px 28px -10px rgba(139,127,224,.7),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-lg{min-height:58px;border-radius:20px;font-size:17px;font-weight:600}
+.btn-soft{background:rgba(139,127,224,.15);color:#CFC8FF}
+.btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--title)}
+.btn-danger{background:rgba(255,120,140,.12);color:#FF9BAA}
+.btn-block{width:100%}
+.btn-sm{min-height:44px;padding:0 16px;font-size:14px;border-radius:14px}
+.linkbtn{min-height:44px;display:inline-flex;align-items:center;gap:4px;color:var(--accent2);font-weight:600;font-size:14px}
+.press{transition:transform .15s ease,background .2s}
+.press:active{transform:scale(.97)}
+.iconbtn{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--title);transition:transform .15s,background .2s;flex:none}
+.iconbtn:active{transform:scale(.92)}
+.avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#A89EF0,#6B5FC9);color:#fff;font-weight:700;font-size:16px;box-shadow:0 8px 20px -8px rgba(139,127,224,.8);transition:transform .15s;flex:none}
+.avatar:active{transform:scale(.92)}
+.chip{min-height:44px;padding:0 16px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--title);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:transform .15s,background .2s,border-color .2s,color .2s;white-space:nowrap}
+.chip:active{transform:scale(.96)}
+.chip.sel{background:rgba(139,127,224,.2);border-color:rgba(168,158,240,.7);color:#fff}
+.chip-ai{border-color:rgba(139,127,224,.35);background:rgba(139,127,224,.1);color:#D6D0FF}
+.seg{display:flex;background:rgba(255,255,255,.05);border-radius:14px;padding:3px;gap:2px}
+.seg button{flex:1;min-height:40px;padding:0 12px;border-radius:11px;font-size:13px;font-weight:600;color:var(--body);transition:background .25s,color .25s;text-align:center}
+.seg button.on{background:rgba(139,127,224,.9);color:#fff;box-shadow:0 6px 16px -6px rgba(139,127,224,.8)}
+.toggle{position:relative;width:51px;height:31px;border-radius:99px;background:rgba(255,255,255,.12);transition:background .25s;flex:none}
+.toggle::before{content:'';position:absolute;inset:-7px -3px}
+.toggle i{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:transform .28s cubic-bezier(.3,1.4,.5,1)}
+.toggle.on{background:var(--accent);box-shadow:0 0 16px -2px rgba(139,127,224,.6)}
+.toggle.on i{transform:translateX(20px)}
+.toggle:disabled{opacity:.55;cursor:default}
+.toggle:active i{width:31px}
+.toggle.on:active i{transform:translateX(16px)}
+.setrow{display:flex;align-items:center;gap:12px;min-height:56px;padding:6px 0}
+.setrow+.setrow{border-top:1px solid var(--line)}
+.setrow .grow{flex:1;min-width:0}
+.field{width:100%;min-height:48px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:0 14px;color:var(--title);font-size:16px;font-weight:500}
+.timeinp{min-height:44px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:0 10px;color:var(--title);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--accent) var(--p,50%),rgba(255,255,255,.1) var(--p,50%))}
+input[type=range]::-moz-range-track{height:6px;border-radius:6px;background:rgba(255,255,255,.1)}
+input[type=range]::-moz-range-progress{height:6px;border-radius:6px;background:var(--accent)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;margin-top:-11px;box-shadow:0 4px 12px rgba(0,0,0,.4),0 0 0 4px rgba(139,127,224,.35)}
+input[type=range]::-moz-range-thumb{width:28px;height:28px;border:0;border-radius:50%;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+input[type=range]:disabled{opacity:.45}
+
+/* ---------- AI text ---------- */
+.shimmer-lines i{display:block;height:11px;border-radius:6px;margin:9px 0;background:linear-gradient(90deg,rgba(255,255,255,.05) 25%,rgba(139,127,224,.32) 50%,rgba(255,255,255,.05) 75%);background-size:200% 100%;animation:shimmer 1.4s linear infinite}
+.caret{display:inline-block;width:2px;height:1.05em;background:var(--accent2);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(2) infinite}
+.skel{position:relative;overflow:hidden;background:rgba(255,255,255,.04)}
+.skel span{position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,rgba(139,127,224,.16) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 1.3s linear infinite}
+.typing{display:inline-flex;gap:5px;padding:4px 2px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--accent2);animation:dots 1.1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+
+/* ---------- charts ---------- */
+.ax{font-size:10px;fill:#6F6D88;font-weight:500}
+.clip-reveal{transform-box:fill-box;transform-origin:left center;animation:clipIn 1.1s cubic-bezier(.3,.7,.2,1) both}
+@keyframes clipIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.bar-grow{transform-box:fill-box;transform-origin:bottom center;animation:grow .7s cubic-bezier(.2,.9,.3,1) both}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.fade-d{animation:fade .6s ease 1s both}
+.mk{cursor:pointer}
+.mk .halo{animation:pulse 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.meter{height:8px;border-radius:8px;background:rgba(255,255,255,.07);overflow:hidden}
+.meter i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,#6B5FC9,#A89EF0);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.batt{height:6px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:8px}
+.batt i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#6B5FC9,#A89EF0)}
+.vs{position:relative;width:64px;height:176px;touch-action:none;cursor:ns-resize;outline-offset:-4px;border-radius:16px}
+.vs-rail{position:absolute;top:13px;bottom:13px;left:50%;width:10px;margin-left:-5px;border-radius:10px;background:rgba(255,255,255,.08)}
+.vs-fill{position:absolute;left:0;right:0;bottom:0;border-radius:10px;background:linear-gradient(180deg,#A89EF0,#6B5FC9)}
+.vs-thumb{position:absolute;left:50%;width:30px;height:26px;margin-left:-15px;border-radius:13px;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.45),0 0 0 4px rgba(139,127,224,.3)}
+.vs.dis{opacity:.5}
+
+/* ---------- overlays ---------- */
+.overlay{position:absolute;inset:0;z-index:60}
+.slide-in{animation:slideIn .42s cubic-bezier(.2,.8,.2,1) both}
+@keyframes slideIn{from{transform:translateX(100%)}to{transform:none}}
+.sheet-wrap{position:absolute;inset:0;z-index:120;display:flex;flex-direction:column;justify-content:flex-end}
+.sheet-back{position:absolute;inset:0;background:rgba(3,5,14,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:fade .25s both}
+.sheet{position:relative;max-height:88%;overflow-y:auto;background:#121935;border-top:1px solid rgba(255,255,255,.09);border-radius:30px 30px 0 0;padding:10px 20px calc(var(--sab) + 24px);animation:sheetUp .34s cubic-bezier(.2,.9,.3,1) both;scrollbar-width:none}
+.sheet::-webkit-scrollbar{display:none}
+.sheet-wrap.closing .sheet{animation:sheetDown .22s ease-in both}
+.sheet-wrap.closing .sheet-back{animation:fadeOut .22s both}
+@keyframes sheetUp{from{transform:translateY(100%)}to{transform:none}}
+@keyframes sheetDown{to{transform:translateY(100%)}}
+@keyframes fadeOut{to{opacity:0}}
+.grab{width:38px;height:5px;border-radius:3px;background:rgba(255,255,255,.18);margin:0 auto 16px}
+.toast{position:absolute;z-index:250;top:calc(var(--sat) + 4px);left:16px;right:16px;margin:0 auto;max-width:358px;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:18px;background:rgba(27,33,70,.94);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid rgba(139,127,224,.4);box-shadow:0 18px 40px -12px rgba(0,0,0,.6);color:var(--title);font-size:14px;font-weight:500;animation:toastIn .4s cubic-bezier(.2,1,.3,1) both;pointer-events:none}
+.toast .tick{width:24px;height:24px;border-radius:50%;background:rgba(123,216,180,.18);color:var(--ok);display:flex;align-items:center;justify-content:center;flex:none}
+@keyframes toastIn{from{opacity:0;transform:translateY(-24px) scale(.96)}to{opacity:1;transform:none}}
+
+/* ---------- splash / onboarding ---------- */
+.splash{position:absolute;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s ease}
+.splash.out{opacity:0;pointer-events:none}
+.splash .halo{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(139,127,224,.42),rgba(139,127,224,.08) 45%,transparent 68%);animation:haloIn 1.5s ease both,pulse 3s ease-in-out infinite}
+@keyframes haloIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.splash .logo{position:relative;animation:logoIn 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes logoIn{from{opacity:0;transform:scale(.92);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+.splash .tag{position:relative;margin-top:18px;font-size:15px;color:var(--body);animation:rise .9s ease .6s both;letter-spacing:.01em}
+.ob{position:absolute;inset:0;z-index:50;background:radial-gradient(ellipse 90% 50% at 50% 18%,rgba(139,127,224,.16),transparent 70%),var(--bg);overflow:hidden}
+.ob-track{display:flex;height:100%;touch-action:pan-y}
+.ob-slide{flex:0 0 100%;height:100%;display:flex;flex-direction:column;padding:calc(var(--sat) + 62px) 26px calc(var(--sab) + 130px);min-height:0}
+.ob-art{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.ob-foot{position:absolute;left:0;right:0;bottom:0;padding:0 26px calc(var(--sab) + 22px);display:flex;flex-direction:column;gap:18px;align-items:center;background:linear-gradient(0deg,var(--bg) 55%,transparent)}
+.dots{display:flex;gap:7px}
+.dots i{width:7px;height:7px;border-radius:7px;background:rgba(255,255,255,.18);transition:width .35s,background .35s}
+.dots i.on{width:24px;background:var(--accent)}
+.ring{transform-box:fill-box;transform-origin:center;animation:ping 3s ease-out infinite}
+.feat{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+
+/* ---------- sleep mode ---------- */
+.sleepmode{position:absolute;inset:0;z-index:150;background:radial-gradient(ellipse 80% 45% at 50% 25%,rgba(70,60,160,.3),transparent 70%),#05070F;display:flex;flex-direction:column;align-items:center;padding:calc(var(--sat) + 18px) 24px calc(var(--sab) + 22px);animation:fade .6s both}
+.breath{position:relative;width:190px;height:190px;display:flex;align-items:center;justify-content:center;margin:6px 0 2px}
+.breath i{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 40%,rgba(184,174,255,.6),rgba(139,127,224,.16) 58%,transparent 70%);animation:breathe 8s ease-in-out infinite}
+.breath i:nth-child(2){animation-delay:-.6s;opacity:.5;inset:16px}
+@keyframes breathe{0%,100%{transform:scale(.7);opacity:.55}50%{transform:scale(1.04);opacity:1}}
+.breath-label{position:relative;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#B9B2F5;font-weight:600;animation:fade 4s ease-in-out infinite alternate}
+.clock{font-size:76px;font-weight:200;letter-spacing:-.05em;color:var(--title);line-height:1;font-variant-numeric:tabular-nums}
+.feed{width:100%;display:flex;flex-direction:column;gap:8px;min-height:150px}
+.feed-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:13px;color:var(--title);animation:feedIn .8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes feedIn{from{opacity:0;transform:translateY(12px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+.feed-item b{font-weight:600;color:#C9C2FF}
+.feed-item .t{margin-left:auto;color:var(--mute);font-size:11px;font-variant-numeric:tabular-nums}
+.analysing{position:absolute;inset:0;z-index:160;background:radial-gradient(ellipse 80% 45% at 50% 30%,rgba(90,76,200,.3),transparent 70%),var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;animation:fade .5s both}
+.orb{width:120px;height:120px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;color:#fff}
+.orb::before{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#8B7FE0,#6EA0FF,#C9B8FF,#8B7FE0);filter:blur(14px);opacity:.7;animation:spin 3s linear infinite}
+.orb::after{content:'';position:absolute;inset:6px;border-radius:50%;background:#0D1230;border:1px solid rgba(255,255,255,.1)}
+.orb svg{position:relative;z-index:1}
+.step{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);transition:color .4s}
+.step.on{color:var(--title)}
+.step .sk{width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;transition:all .4s;flex:none}
+.step.done .sk{background:var(--accent);border-color:var(--accent);color:#fff}
+.step.on:not(.done) .sk{border-color:var(--accent2);border-top-color:transparent;animation:spin 1s linear infinite}
+
+/* ---------- misc ---------- */
+.bubble{max-width:86%;padding:12px 15px;border-radius:20px;font-size:14.5px;line-height:1.55;animation:rise .4s cubic-bezier(.2,.8,.2,1) both}
+.bubble.ai{background:var(--card);border:1px solid var(--line);color:#D8D5E8;border-bottom-left-radius:6px}
+.bubble.me{background:linear-gradient(180deg,#9A8FEA,#8B7FE0);color:#fff;border-bottom-right-radius:6px;margin-left:auto}
+.hscroll{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 20px;margin:0 -20px}
+.hscroll::-webkit-scrollbar{display:none}
+.find-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(168,158,240,.6);animation:ping 2s ease-out infinite}
+.wavebars{display:flex;align-items:center;gap:3px;height:22px}
+.wavebars i{width:3px;border-radius:3px;background:var(--accent2);animation:wb 1s ease-in-out infinite}
+@keyframes wb{0%,100%{height:5px}50%{height:20px}}
+.slide-out{animation:slideOut .3s cubic-bezier(.4,0,.6,1) both}
+@keyframes slideOut{to{transform:translateX(100%)}}
+.empty{text-align:center;padding:26px 10px}
+.dash{animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-18}}
+.link{color:var(--accent2);text-decoration:none;font-weight:600}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="root"><div class="boot"></div></div>
+<script type="text/babel" data-presets="react">
+/* =====================================================================
+   SHHH — companion app V1
+   Sections: helpers · data engine · store · UI kit · charts · screens · root
+   ===================================================================== */
+const { useState, useEffect, useRef, useMemo, useCallback, createContext, useContext } = React;
+
+/* ---------------------------- helpers ---------------------------- */
+const LS_KEY = 'shhh.v1';
+const lsGet = (k, fb) => { try { const v = window.localStorage.getItem(k); return v ? JSON.parse(v) : fb; } catch (e) { return fb; } };
+const lsSet = (k, v) => { try { window.localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } };
+const lsDel = (k) => { try { window.localStorage.removeItem(k); } catch (e) { /* storage unavailable */ } };
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const pad = (n) => String(n).padStart(2, '0');
+const rng = (seed) => { let a = seed >>> 0; return () => { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; };
+const fmtDur = (m) => { m = Math.round(m); const h = Math.floor(m / 60), r = m % 60; return h ? `${h}h ${r}m` : `${r}m`; };
+const wrapMin = (m) => ((Math.round(m) % 1440) + 1440) % 1440;
+const fmtClock = (m) => { m = wrapMin(m); return `${pad(Math.floor(m / 60))}:${pad(m % 60)}`; };
+const fmtShort = (m) => { m = wrapMin(m); return `${Math.floor(m / 60)}:${pad(m % 60)}`; };
+const toMin = (hhmm) => { const [h, m] = hhmm.split(':').map(Number); return h * 60 + m; };
+const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const isoDate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const parseISO = (s) => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d, 12); };
+const daysAgo = (n) => { const d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() - n); return d; };
+const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+const mean = (a) => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0);
+const greeting = () => { const h = new Date().getHours(); return h < 5 ? 'Good night' : h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening'; };
+
+/* ------------------------- noise taxonomy ------------------------- */
+const CATS = {
+  traffic: { name: 'Traffic / buses', icon: 'bus', band: 'Low frequency (60–250 Hz)', phrase: 'passing bus' },
+  bass: { name: 'Bar music bass', icon: 'music', band: 'Low frequency (40–120 Hz)', phrase: 'bass-heavy music' },
+  voices: { name: 'Voices / shouting', icon: 'voices', band: 'Mid frequency (300–3,000 Hz)', phrase: 'burst of voices' },
+  truck: { name: 'Garbage truck', icon: 'truck', band: 'Low-mid frequency (80–500 Hz)', phrase: 'garbage truck' }
+};
+const LABELS = { traffic: ['Bus', 'Car', 'Motorbike', 'Delivery van', 'Tram'], bass: ['Bass music', 'Club bass', 'Sub-bass'], voices: ['Voices', 'Shouting', 'Street chatter'], truck: ['Garbage truck'] };
+const CAT_DB = { traffic: [62, 74], bass: [58, 70], voices: [55, 68], truck: [66, 76] };
+const CAT_CONF = { traffic: [88, 98], bass: [88, 97], voices: [74, 93], truck: [90, 98] };
+const CAT_SPREAD = { traffic: 3, bass: 5, voices: 20, truck: 5 };
+const STAGE = { 0: { n: 'Awake', c: '#E6E0FF' }, 1: { n: 'REM', c: '#8B7FE0' }, 2: { n: 'Light', c: '#5D7BE3' }, 3: { n: 'Deep', c: '#37409B' } };
+const verb = (pct) => (pct >= 80 ? 'cancelled' : 'reduced');
+
+/* --------------------------- night engine --------------------------- */
+function carve(segs, s, e, st) {
+  const out = [];
+  segs.forEach((g) => {
+    if (g.e <= s || g.s >= e) { out.push(g); return; }
+    if (g.s < s) out.push({ s: g.s, e: s, st: g.st });
+    if (g.e > e) out.push({ s: e, e: g.e, st: g.st });
+  });
+  out.push({ s, e, st });
+  return out.sort((a, b) => a.s - b.s);
+}
+function mergeSegs(segs) {
+  const out = [];
+  segs.forEach((g) => { const l = out[out.length - 1]; if (l && l.st === g.st) l.e = g.e; else out.push({ ...g }); });
+  return out;
+}
+function genSegments(r, total, lat, wakes) {
+  const n = 5, clen = (total - lat) / n;
+  const dF = [0.36, 0.3, 0.2, 0.1, 0.04], rF = [0.08, 0.15, 0.21, 0.27, 0.33];
+  const raw = [];
+  for (let c = 0; c < n; c++) {
+    const j = () => 0.85 + r() * 0.3;
+    const d = Math.round(clen * dF[c] * j()), rm = Math.round(clen * rF[c] * j()), l1 = Math.round(clen * 0.14 * j());
+    const l2 = Math.max(5, Math.round(clen - l1 - d - rm));
+    [[2, l1], [3, d], [2, l2], [1, rm]].forEach(([st, len]) => { if (len > 0) raw.push([st, len]); });
+  }
+  const sum = raw.reduce((a, x) => a + x[1], 0), k = (total - lat) / sum;
+  let cum = 0;
+  let segs = [{ s: 0, e: lat, st: 0 }];
+  raw.forEach(([st, len]) => { const s = lat + Math.round(cum * k); cum += len; const e = lat + Math.round(cum * k); if (e > s) segs.push({ s, e, st }); });
+  segs[segs.length - 1].e = total;
+  for (let i = 0; i < 2; i++) { const t = Math.round(40 + r() * (total - 90)); segs = carve(segs, t, t + 1 + Math.round(r()), 0); }
+  wakes.forEach((w) => { segs = carve(segs, w.t, w.t + w.dur, 0); });
+  return mergeSegs(segs);
+}
+function statsOf(segs, lat) {
+  let deep = 0, light = 0, rem = 0, awake = 0, awakenings = 0;
+  segs.forEach((g) => {
+    const d = g.e - g.s;
+    if (g.st === 3) deep += d; else if (g.st === 2) light += d; else if (g.st === 1) rem += d;
+    else if (g.s >= lat) { awake += d; if (d >= 5) awakenings++; }
+  });
+  return { deep, light, rem, awake, awakenings, asleep: deep + light + rem };
+}
+function makeEvents(r, spec, total, o) {
+  const place = {
+    traffic: () => (r() < 0.7 ? 5 + r() * 150 : total - 110 + r() * 100),
+    bass: () => 10 + r() * 130,
+    voices: () => (o.weekend ? 95 + r() * 125 : 60 + r() * (total - 130)),
+    truck: () => total - 130 + r() * 100
+  };
+  const out = [];
+  Object.keys(CATS).forEach((cat) => {
+    const n = spec[cat] || 0;
+    if (!n) return;
+    const times = cat === 'voices' && o.voiceTimes ? o.voiceTimes.slice() : Array.from({ length: n }, place[cat]);
+    times.sort((a, b) => a - b);
+    const target = cat === 'voices' && o.voiceTarget != null ? o.voiceTarget : cat === 'voices' ? 58 : { traffic: 96, bass: 91, truck: 84 }[cat];
+    let vals = times.map(() => (r() - 0.5) * 2 * CAT_SPREAD[cat]);
+    const m = mean(vals);
+    vals = vals.map((v) => clamp(Math.round(target + v - m), 8, 99));
+    if (cat === 'voices' && o.voicePcts) vals = o.voicePcts.slice();
+    times.forEach((t, i) => {
+      const [dl, dh] = CAT_DB[cat], [cl, ch] = CAT_CONF[cat];
+      out.push({ t: clamp(Math.round(t), 3, total - 3), cat, label: LABELS[cat][Math.floor(r() * LABELS[cat].length)], db: Math.round(dl + r() * (dh - dl)), conf: Math.round(cl + r() * (ch - cl)), pct: vals[i], woke: false });
+    });
+  });
+  return out.sort((a, b) => a.t - b.t);
+}
+function dbSeries(r, events, total) {
+  const amb = [], heard = [];
+  for (let t = 0; t <= total; t += 5) {
+    let a = 36 + r() * 3 + Math.sin(t / 55) * 2, h = 27 + r() * 1.5;
+    events.forEach((e) => { const w = Math.exp(-Math.pow((t - e.t) / 6, 2)); a += (e.db - 36) * w; h += (e.db - 36) * (1 - e.pct / 100) * w * 0.8; });
+    amb.push(Math.round(clamp(a, 30, 82) * 10) / 10);
+    heard.push(Math.round(clamp(h, 24, 70) * 10) / 10);
+  }
+  return { amb, heard };
+}
+function stageAt(segs, t) { const g = segs.find((x) => t >= x.s && t < x.e); return g ? g.st : 2; }
+function makeMarkers(n) {
+  const out = [];
+  const longest = (st) => n.segs.filter((g) => g.st === st).sort((a, b) => (b.e - b.s) - (a.e - a.s))[0];
+  const deep = longest(3);
+  if (deep) {
+    const c = n.events.filter((e) => e.t >= deep.s && e.t < deep.e);
+    out.push({ t: Math.round((deep.s + deep.e) / 2), title: 'Deep sleep peak', text: `Your longest deep sleep stretch: ${fmtDur(deep.e - deep.s)} without interruption. Shhh cancelled ${plural(c.length, 'noise')} during it, including ${c.filter((e) => e.cat === 'traffic').length} passing vehicles.` });
+  }
+  n.events.filter((e) => e.woke).forEach((e) => {
+    out.push({ t: e.t, title: 'Brief awakening', text: `Awakening linked to ${CATS[e.cat].phrase === 'burst of voices' ? 'voices' : e.label.toLowerCase()}, ${e.db} dB. Only ${e.pct}% of it was reduced because mid frequencies are harder to cancel. You were back asleep in ${e.wakeDur} minutes.` });
+  });
+  const rem = longest(1);
+  if (rem) out.push({ t: Math.round((rem.s + rem.e) / 2), title: 'Longest REM stretch', text: `${fmtDur(rem.e - rem.s)} of REM sleep, the dreaming stage that helps memory and mood. ${n.rem >= 100 ? 'That is a strong total for you.' : 'Aim to protect your last two hours of sleep for more.'}` });
+  out.push({ t: n.total - 3, title: 'Smart alarm', text: `Shhh AI woke you at ${fmtClock(n.bed + n.total)} during light sleep, the gentlest moment inside your wake-up window.` });
+  return out.sort((a, b) => a.t - b.t);
+}
+function finishNight(n, r) {
+  const st = statsOf(n.segs, n.latency);
+  Object.assign(n, st);
+  const s = dbSeries(r, n.events, n.total);
+  n.amb = s.amb; n.heard = s.heard;
+  n.markers = makeMarkers(n);
+  return n;
+}
+const HERO_SEGS = [[0, 14, 0], [14, 40, 2], [40, 100, 3], [100, 112, 2], [112, 130, 1], [130, 142, 2], [142, 164, 3], [164, 170, 0], [170, 190, 2], [190, 215, 1], [215, 245, 2], [245, 261, 3], [261, 276, 2], [276, 306, 1], [306, 330, 2], [330, 332, 0], [332, 350, 2], [350, 380, 1], [380, 382, 0], [382, 420, 2], [420, 422, 0], [422, 458, 2]];
+function buildHero(o) {
+  const r = rng(o.seed), total = 458;
+  const events = makeEvents(r, { traffic: 23, bass: 11, voices: 6, truck: 2 }, total, { weekend: true, voiceTimes: [95, 130, 164, 178, 205, 230], voicePcts: [66, 61, 38, 63, 57, 63] });
+  const w = events.find((e) => e.cat === 'voices' && e.t === 164);
+  Object.assign(w, { label: 'Voices', db: 62, conf: 91, woke: true, wakeDur: 6 });
+  const n = { id: o.id, date: o.date, bed: 23 * 60 + 30, total, score: 84, latency: 14, segs: HERO_SEGS.map(([s, e, st]) => ({ s, e, st })), events, legacy: false, hero: true };
+  return finishNight(n, r);
+}
+function computeScore(n) { return clamp(Math.round(60 + (n.asleep / 450) * 22 + (n.deep / 100) * 6 + (n.rem / 100) * 3 - n.awakenings * 3 - n.latency * 0.15), 58, 96); }
+function buildNight(o) {
+  if (o.hero) return buildHero(o);
+  const r = rng(o.seed), wk = o.weekday, weekend = wk === 5 || wk === 6;
+  const total = Math.round(440 + r() * 30);
+  const spec = { traffic: Math.round(17 + r() * 9), bass: weekend ? Math.round(9 + r() * 6) : Math.round(3 + r() * 5), voices: weekend ? Math.round(5 + r() * 3) : Math.round(1 + r() * 2), truck: Math.round(r() * 2.4) };
+  const events = makeEvents(r, spec, total, { weekend, voiceTarget: o.voiceTarget != null ? o.voiceTarget : weekend ? 55 : 62 });
+  const wakes = [];
+  if (r() < (o.wakeProb != null ? o.wakeProb : weekend ? 0.8 : 0.2)) {
+    const c = events.filter((e) => e.cat === 'voices' && e.t > 60 && e.t < total - 60).sort((a, b) => a.pct - b.pct)[0];
+    if (c) { c.woke = true; c.pct = Math.min(c.pct, 42); c.wakeDur = Math.round(5 + r() * 6); wakes.push({ t: c.t, dur: c.wakeDur }); }
+  }
+  const latency = Math.round(8 + r() * 14);
+  const n = { id: o.id, date: o.date, bed: o.bed != null ? o.bed : 22 * 60 + 50 + Math.round(r() * 80), total, latency, segs: genSegments(r, total, latency, wakes), events, legacy: !!o.legacy };
+  finishNight(n, r);
+  n.score = o.score != null ? o.score : computeScore(n);
+  return n;
+}
+const LEGACY_SCORES = [70, 72, 68, 74, 71, 75, 73, 69, 76, 72, 74, 70, 77, 73, 75, 71];
+const RECENT_SCORES = [74, 77, 75, 79, 81, 76, 78, 80, 79, 82, 80, 81, 83, 84];
+const HISTORY = (() => {
+  const all = [...LEGACY_SCORES, ...RECENT_SCORES];
+  return all.map((score, i) => {
+    const d = daysAgo(all.length - i);
+    return buildNight({ id: 'h' + isoDate(d), date: isoDate(d), seed: 9100 + i * 37, score, weekday: d.getDay(), legacy: i < LEGACY_SCORES.length, hero: i === all.length - 1 });
+  });
+})();
+
+function nightLabel(n) {
+  const diff = Math.round((daysAgo(0) - parseISO(n.date)) / 86400000);
+  const d = parseISO(n.date);
+  return diff <= 1 ? 'Last night' : `${DAYS[d.getDay()].slice(0, 3)} ${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}`;
+}
+function nightSummary(n, prev) {
+  if (n.hero) return 'You slept well overall. Your deep sleep was strong before 2 a.m., then a burst of voices at 2:14 woke you briefly. You got back to sleep in 6 minutes. Your REM sleep was 12% above your average.';
+  const s = n.score >= 85 ? 'You slept very well.' : n.score >= 78 ? 'You slept well overall.' : n.score >= 70 ? 'A decent night with a few bumps.' : 'A restless night.';
+  const deepTxt = n.deep >= 90 ? 'Your deep sleep was strong in the first half of the night.' : 'Your deep sleep was a little short, which is common after a late bedtime.';
+  const w = n.events.find((e) => e.woke);
+  const wake = w ? ` A ${CATS[w.cat].phrase} at ${fmtShort(n.bed + w.t)} woke you briefly. You got back to sleep in ${w.wakeDur} minutes.` : ` No awakenings: Shhh cancelled ${plural(n.events.filter((e) => e.pct >= 80).length, 'noise')} without waking you.`;
+  const avg = mean(prev.map((p) => p.rem)); const diff = avg ? Math.round(((n.rem - avg) / avg) * 100) : 0;
+  const rem = Math.abs(diff) < 3 ? ' Your REM sleep was in line with your average.' : ` Your REM sleep was ${Math.abs(diff)}% ${diff > 0 ? 'above' : 'below'} your average.`;
+  return `${s} ${deepTxt}${wake}${rem}`;
+}
+function aggregate(list) {
+  const out = {};
+  Object.keys(CATS).forEach((k) => { out[k] = { cat: k, count: 0, sum: 0, wakes: [] }; });
+  list.forEach((n) => n.events.forEach((e) => { const o = out[e.cat]; o.count++; o.sum += e.pct; if (e.woke) o.wakes.push(n.bed + e.t); }));
+  return Object.values(out).filter((o) => o.count).map((o) => ({ ...o, pct: Math.round(o.sum / o.count) })).sort((a, b) => b.count - a.count);
+}
+
+/* ------------------------- profiles & defaults ------------------------- */
+const PROFILES = [
+  { id: 'city', name: 'City night', desc: 'Traffic, buses and street noise', icon: 'city', eq: { low: 92, mid: 55, high: 40 }, intensity: 1 },
+  { id: 'snoring', name: 'Snoring partner', desc: 'Rumble and snoring, 100–1,000 Hz', icon: 'zzz', eq: { low: 70, mid: 90, high: 45 }, intensity: 2 },
+  { id: 'neighbors', name: 'Noisy neighbors', desc: 'Voices, TV and footsteps', icon: 'users', eq: { low: 60, mid: 92, high: 62 }, intensity: 2 },
+  { id: 'travel', name: 'Travel', desc: 'Engines, cabin hum, announcements', icon: 'plane', eq: { low: 95, mid: 70, high: 50 }, intensity: 2 },
+  { id: 'weekend', name: 'AI Weekend', desc: 'Built from your Friday and Saturday nights', icon: 'sparkle', ai: true, eq: { low: 90, mid: 84, high: 55 }, intensity: 2 },
+  { id: 'custom', name: 'Custom', desc: 'Your own tuning', icon: 'sliders', eq: { low: 80, mid: 60, high: 50 }, intensity: 1 }
+];
+const AI_EQ = { low: 94, mid: 84, high: 52 };
+const DEFAULT_STATE = {
+  onboarded: false, paired: false, sources: [], name: 'Sophie', goal: 8,
+  notif: { bedtime: true, weekly: true }, share: false,
+  profile: 'city', adaptive: true, intensity: 1, eq: { low: 92, mid: 55, high: 40 }, customEq: { low: 80, mid: 60, high: 50 },
+  sched: { on: false, from: '01:00', to: '03:00' },
+  essentials: { alarm: true, calls: false, baby: false, smoke: true },
+  alarm: { on: true, from: '06:45', to: '07:15' },
+  forecast: 'pending', recApplied: false, recDismissed: false, fit: null,
+  chat: [], sessions: []
+};
+function mergeState(saved) {
+  const d = DEFAULT_STATE;
+  if (!saved || typeof saved !== 'object') return { ...d };
+  return { ...d, ...saved, notif: { ...d.notif, ...(saved.notif || {}) }, eq: { ...d.eq, ...(saved.eq || {}) }, customEq: { ...d.customEq, ...(saved.customEq || {}) }, sched: { ...d.sched, ...(saved.sched || {}) }, essentials: { ...d.essentials, ...(saved.essentials || {}), smoke: true }, alarm: { ...d.alarm, ...(saved.alarm || {}) }, chat: Array.isArray(saved.chat) ? saved.chat : [], sessions: Array.isArray(saved.sessions) ? saved.sessions : [], sources: Array.isArray(saved.sources) ? saved.sources : [] };
+}
+
+/* ------------------------------ coach ------------------------------ */
+function coachReply(text, c) {
+  const t = text.toLowerCase();
+  const has = (...k) => k.some((w) => t.includes(w));
+  const last = c.last, w = last.events.find((e) => e.woke);
+  if (has('weekend', 'friday', 'saturday')) {
+    return { text: `Done. I switched your earplugs to the AI Weekend profile. It keeps low-frequency cancellation at maximum for bar bass and boosts mid-frequency reduction between 1 and 3 a.m., when voices peak on your Friday and Saturday nights (${c.voiceWeekend} voice events over ${c.nights} nights). It's already synced to your earplugs.`, chip: 'Weekend profile applied ✓', apply: 'weekend' };
+  }
+  if (has('wake', 'woke', 'awake', 'awaken', 'wake up')) {
+    if (w) return { text: `Last night you woke once, at ${fmtShort(last.bed + w.t)}. I linked it to ${CATS[w.cat].phrase} at ${w.db} dB. Only ${w.pct}% of it was reduced, because voices sit in the mid frequencies, which are harder to cancel than low ones. You were back asleep in ${w.wakeDur} minutes. I can boost mid-frequency reduction between 1 and 3 a.m. if you'd like.`, actions: [{ label: 'Open recommendation', do: 'rec' }] };
+    return { text: `Good news: you didn't wake up once last night. Shhh cancelled ${plural(last.events.filter((e) => e.pct >= 80).length, 'noise')} while you slept, and your sleep score was ${last.score}. Over ${c.nights} nights, voices between 1 and 3 a.m. remain the most likely thing to wake you.` };
+  }
+  if (has('deep')) {
+    return { text: `Last night you got ${fmtDur(last.deep)} of deep sleep, versus ${fmtDur(c.avgDeep)} on average. Deep sleep happens mostly in the first half of the night, so that's the window to protect. Three things that help: keep your bedroom around 18°C, avoid alcohol and heavy meals 3 hours before bed, and keep a regular bedtime within 30 minutes. I keep low-frequency cancellation at maximum early in the night.` };
+  }
+  if (has('snor')) {
+    return { text: `Snoring sits around 100–1,000 Hz, partly in the mid range where cancellation is harder. The Snoring partner profile boosts mid-frequency reduction to 90% while keeping bass handled. ${c.sources.includes('Partner snoring') ? 'You told me snoring is one of your noise sources, so ' : ''}I'd start there, and I'll learn from the next nights.`, actions: [{ label: 'Switch to Snoring partner', do: 'profile:snoring' }] };
+  }
+  if (has('noise', 'noisy', 'bother', 'disturb', 'loud', 'sound')) {
+    const top = c.top[0], voices = c.top.find((o) => o.cat === 'voices');
+    return { text: `By count, ${CATS[top.cat].name.toLowerCase()} is your most frequent noise (${top.count} events over ${c.nights} nights) but ${top.pct}% of it is cancelled, so you barely hear it. The one that actually costs you sleep is voices${voices ? ` (${voices.count} events, only ${voices.pct}% reduced)` : ''}, mostly between 1 and 3 a.m. on Fridays and Saturdays.`, actions: [{ label: 'Open noise analysis', do: 'noise' }, { label: 'Let AI optimize my earplugs', do: 'rec' }] };
+  }
+  if (has('alarm', 'wake-up', 'morning')) {
+    return { text: `Your smart alarm window is ${c.alarm.from} to ${c.alarm.to}${c.alarm.on ? '' : ' (currently off)'}. Shhh AI watches in-ear motion and heart rate, then wakes you gently in the lightest sleep stage it finds inside that window. Last night that was ${fmtClock(last.bed + last.total)}, and you woke in light sleep. A wider window of 30 minutes usually gives smoother mornings.` };
+  }
+  if (has('tired', 'sleepy', 'energy', 'exhaust', 'fatigue', 'fall asleep', 'faster')) {
+    const diff = c.goal * 60 - c.avg7;
+    return { text: `Your 7-night average is ${fmtDur(c.avg7)}, ${diff > 20 ? `${fmtDur(diff)} short of your ${c.goal} h goal` : 'close to your ' + c.goal + ' h goal'}. You usually fall asleep in about ${Math.round(c.avgLat)} minutes. To feel more rested: get daylight within an hour of waking, stop caffeine 8 hours before bed, and try a 10-minute wind-down with dim lights. Shhh handles the noise, so you only need to handle the routine.` };
+  }
+  if (has('thank', 'thx', 'great', 'cool')) return { text: `Anytime, ${c.name}. Sleep well tonight. I'll be watching the noise so you don't have to.` };
+  if (has('hello', 'hi ', 'hey', 'good morning', 'good evening') || t.trim() === 'hi') return { text: `Hi ${c.name}! Ask me about last night, your deep sleep, the noises around you, or your earplugs settings.` };
+  return { text: `I'm not sure I got that one, ${c.name}, but I can help with a lot: why you woke up, how to get more deep sleep, which noise bothers you most, your alarm, or tuning your earplugs for the weekend. Tap a suggestion below or ask in your own words.` };
+}
+
+/* ------------------------------ context ------------------------------ */
+const AppCtx = createContext(null);
+const useApp = () => useContext(AppCtx);
+const revealed = new Set();
+
+function Provider({ children }) {
+  const [s, setS] = useState(() => { const v = mergeState(lsGet(LS_KEY, null)); v.chat.forEach((m) => revealed.add(m.id)); return v; });
+  const [ui, setUiState] = useState({ tab: 'tonight', profile: false, sheet: null, sheetProps: null, session: null, phase: null, highlight: false, nightIdx: null });
+  const [toastMsg, setToast] = useState(null);
+  useEffect(() => { const t = setTimeout(() => lsSet(LS_KEY, s), 200); return () => clearTimeout(t); }, [s]);
+  useEffect(() => { if (!toastMsg) return undefined; const t = setTimeout(() => setToast(null), 2700); return () => clearTimeout(t); }, [toastMsg]);
+
+  const set = useCallback((p) => setS((prev) => ({ ...prev, ...(typeof p === 'function' ? p(prev) : p) })), []);
+  const setUi = useCallback((p) => setUiState((prev) => ({ ...prev, ...p })), []);
+  const toast = useCallback((msg, icon) => setToast({ msg, icon: icon || 'check', k: Date.now() }), []);
+  const go = useCallback((tab, o) => setUiState((prev) => ({ ...prev, tab, profile: false, sheet: null, highlight: !!(o && o.highlight), nightIdx: tab === 'sleep' && o && o.nightIdx != null ? o.nightIdx : prev.nightIdx })), []);
+  const openSheet = useCallback((id, props) => setUiState((prev) => ({ ...prev, sheet: id, sheetProps: props || null })), []);
+  const closeSheet = useCallback(() => setUiState((prev) => ({ ...prev, sheet: null })), []);
+
+  const nights = useMemo(() => [...HISTORY, ...s.sessions], [s.sessions]);
+  const applyProfile = useCallback((id) => {
+    const p = PROFILES.find((x) => x.id === id) || PROFILES[0];
+    set((prev) => ({ profile: id, eq: id === 'custom' ? { ...prev.customEq } : { ...p.eq }, intensity: id === 'custom' ? prev.intensity : p.intensity }));
+  }, [set]);
+  const setEqManual = useCallback((part) => set((prev) => { const eq = { ...prev.eq, ...part }; return { eq, customEq: eq, profile: 'custom' }; }), [set]);
+  const applyRec = useCallback(() => set((prev) => ({ eq: { ...prev.eq, mid: Math.max(prev.eq.mid, 84) }, sched: { on: true, from: '01:00', to: '03:00' }, recApplied: true, recDismissed: false })), [set]);
+
+  const endSession = useCallback(() => {
+    const now = new Date();
+    const n = buildNight({ id: 's' + now.getTime(), date: isoDate(now), seed: now.getTime() % 100000, weekday: now.getDay(), bed: 23 * 60 + Math.round(Math.random() * 40), voiceTarget: clamp(Math.round(30 + s.eq.mid * 0.45 + (s.adaptive ? 6 : 0)), 40, 90), wakeProb: clamp(0.5 - (s.eq.mid - 55) / 90 - (s.adaptive ? 0.08 : 0), 0.05, 0.6) });
+    set((prev) => ({ sessions: [...prev.sessions, n] }));
+    setUiState((prev) => ({ ...prev, session: null, phase: null, tab: 'sleep', nightIdx: null }));
+    setToast({ msg: 'Your night report is ready', icon: 'check', k: Date.now() });
+  }, [s.eq.mid, s.adaptive, set]);
+
+  const reset = useCallback(() => {
+    lsDel(LS_KEY); revealed.clear();
+    setS({ ...DEFAULT_STATE, chat: [], sessions: [] });
+    setUiState({ tab: 'tonight', profile: false, sheet: null, sheetProps: null, session: null, phase: null, highlight: false, nightIdx: null });
+  }, []);
+
+  const value = { s, set, ui, setUi, toast, toastMsg, go, openSheet, closeSheet, nights, applyProfile, setEqManual, applyRec, endSession, reset };
+  return <AppCtx.Provider value={value}>{children}</AppCtx.Provider>;
+}
+
+/* ------------------------------ icons ------------------------------ */
+const ICONS = {
+  moon: <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />,
+  steps: <path d="M3 6h6v6h5v6h7" />,
+  wave: <path d="M4 10v4M8 6v12M12 3v18M16 8v8M20 11v2" />,
+  chat: <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 0 1 3.9 11.5 8.5 8.5 0 0 1 12.4 3 8.4 8.4 0 0 1 21 11.5z" />,
+  earbud: <><circle cx="9.5" cy="8.5" r="5.5" /><path d="M14 12.5V19a2.5 2.5 0 0 1-5 0" /></>,
+  user: <><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></>,
+  chevR: <path d="m9 18 6-6-6-6" />, chevL: <path d="m15 18-6-6 6-6" />, chevD: <path d="m6 9 6 6 6-6" />,
+  check: <path d="M20 6 9 17l-5-5" />, x: <path d="M18 6 6 18M6 6l12 12" />,
+  bell: <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0" />,
+  clock: <><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></>,
+  sun: <><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></>,
+  alarm: <><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2 2M5 3 2 6M22 6l-3-3" /></>,
+  battery: <><rect x="2" y="7" width="16" height="10" rx="2" /><path d="M22 11v2" /></>,
+  bt: <path d="m7 7 10 10-5 5V2l5 5L7 17" />,
+  bus: <><rect x="4" y="3" width="16" height="15" rx="3" /><path d="M4 11h16M8 18v3M16 18v3M8 14.5h.01M16 14.5h.01" /></>,
+  music: <><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" /></>,
+  voices: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />,
+  truck: <><path d="M10 17h4V5H2v12h3M20 17h2v-3.3a4 4 0 0 0-1.2-2.8L19 9h-5" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></>,
+  shield: <path d="M20 13c0 5-3.5 7.5-7.7 9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.500-1.200 6.200-2.700a1.200 1.200 0 0 1 1.500 0C14.500 3.800 17 5 19 5a1 1 0 0 1 1 1z" />,
+  lock: <><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></>,
+  sliders: <path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" />,
+  send: <path d="M22 2 11 13M22 2l-7 20-4-9-9-4z" />,
+  info: <><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></>,
+  trash: <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />,
+  help: <><circle cx="12" cy="12" r="10" /><path d="M9.100 9a3 3 0 0 1 5.800 1c0 2-3 3-3 3M12 17h.01" /></>,
+  target: <><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></>,
+  cpu: <><rect x="4" y="4" width="16" height="16" rx="2" /><rect x="9" y="9" width="6" height="6" /><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" /></>,
+  plane: <path d="M17.800 19.200 16 11l3.500-3.500C21 6 21.500 4 21 3c-1-.5-3 0-4.500 1.500L13 8 4.800 6.200c-.5-.1-.9.1-1.100.5l-.3.5c-.2.5-.1 1 .3 1.300L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.500 5.300c.3.4.8.5 1.300.3l.5-.2c.4-.3.600-.7.500-1.200z" />,
+  users: <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.900M16 3.100a4 4 0 0 1 0 7.800" /></>,
+  zzz: <path d="M4 4h6L4 12h6M13 12h5l-5 7h5" />,
+  city: <><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M10 22v-4h4v4M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01" /></>,
+  pen: <path d="M12 20h9M16.500 3.500a2.100 2.100 0 0 1 3 3L7 19l-4 1 1-4z" />,
+  refresh: <path d="M3 12a9 9 0 0 1 15-6.700L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.700L3 16M3 21v-5h5" />,
+  phone: <path d="M22 16.900v3a2 2 0 0 1-2.200 2 19.800 19.800 0 0 1-8.600-3.100 19.500 19.500 0 0 1-6-6A19.800 19.800 0 0 1 2.100 4.200 2 2 0 0 1 4.100 2h3a2 2 0 0 1 2 1.700c.1 1 .4 1.900.7 2.800a2 2 0 0 1-.5 2.100L8.100 9.900a16 16 0 0 0 6 6l1.300-1.300a2 2 0 0 1 2.100-.4c.9.3 1.800.6 2.800.7a2 2 0 0 1 1.700 2z" />,
+  baby: <><circle cx="12" cy="12" r="10" /><path d="M8 14s1.500 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></>,
+  alert: <path d="M10.300 3.900 1.800 18a2 2 0 0 0 1.700 3h17a2 2 0 0 0 1.700-3L13.700 3.900a2 2 0 0 0-3.400 0zM12 9v4M12 17h.01" />,
+  volume: <path d="M11 5 6 9H2v6h4l5 4zM15.500 8.500a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14" />,
+  trend: <path d="M22 7 13.500 15.500 8.500 10.500 2 17M16 7h6v6" />,
+  ear: <path d="M6 8.500a6.500 6.500 0 1 1 13 0c0 6-6 6-6 10a3.500 3.500 0 0 1-7 0M15 8.500a2.500 2.500 0 0 0-5 0v1a2 2 0 1 1 0 4" />,
+  mail: <><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></>,
+  file: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h8" /></>,
+  sparkle: <><path d="M10.500 3l1.900 5.600 5.600 1.900-5.600 1.900L10.500 18l-1.900-5.600L3 10.500l5.600-1.900z" /><path d="M19 2.500l.8 2.200 2.200.8-2.200.8L19 8.500l-.8-2.200-2.200-.8 2.200-.8z" /></>
+};
+const Icon = ({ name, size = 22, stroke = 1.8, fill = 'none', style, className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" style={style} className={className} aria-hidden="true">{ICONS[name]}</svg>
+);
+const Logo = ({ size = 28 }) => (
+  <span className="logo" style={{ fontSize: size }} aria-label="Shhh">Shhh
+    <svg viewBox="0 0 20 20" fill="none" stroke="#A89EF0" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M4 6.500a5.500 5.500 0 0 1 0 7" /><path d="M8.500 3.500a9.500 9.500 0 0 1 0 13" /></svg>
+  </span>
+);
+const AIBadge = ({ label = 'Shhh AI' }) => (
+  <span className="ai-badge"><Icon name="sparkle" size={12} fill="currentColor" stroke={0.5} />{label}</span>
+);
+
+/* --------------------------- AI text reveal --------------------------- */
+function AIText({ id, text, className = 'body', delay = 650, shimmer = true, onTick, style }) {
+  const [n, setN] = useState(() => (revealed.has(id) ? text.length : -1));
+  useEffect(() => {
+    if (revealed.has(id)) { setN(text.length); return undefined; }
+    setN(shimmer ? -1 : 0);
+    let i = 0, iv = null;
+    const to = setTimeout(() => {
+      iv = setInterval(() => {
+        i = Math.min(text.length, i + 3);
+        setN(i);
+        if (onTick) onTick();
+        if (i >= text.length) { clearInterval(iv); revealed.add(id); }
+      }, 22);
+    }, shimmer ? delay : 0);
+    return () => { clearTimeout(to); if (iv) clearInterval(iv); };
+  }, [id, text]);
+  if (n < 0) return <div className="shimmer-lines" aria-label="Shhh AI is analysing" style={style}><i style={{ width: '94%' }} /><i style={{ width: '80%' }} /><i style={{ width: '52%' }} /></div>;
+  return <p className={className} style={style} aria-live="polite">{text.slice(0, n)}{n < text.length && <span className="caret" />}</p>;
+}
+
+/* ----------------------------- primitives ----------------------------- */
+const Toggle = ({ on, onChange, label, disabled }) => (
+  <button type="button" role="switch" aria-checked={!!on} aria-label={label} disabled={disabled} className={'toggle' + (on ? ' on' : '')} onClick={() => onChange(!on)}><i /></button>
+);
+const Seg = ({ options, value, onChange, label }) => (
+  <div className="seg" role="tablist" aria-label={label}>
+    {options.map((o) => <button key={o.v} type="button" role="tab" aria-selected={value === o.v} className={value === o.v ? 'on' : ''} onClick={() => onChange(o.v)}>{o.l}</button>)}
+  </div>
+);
+const SectionHead = ({ eyebrow, title, right }) => (
+  <div className="row between" style={{ marginBottom: 12, alignItems: 'flex-end' }}>
+    <div>{eyebrow && <div className="eyebrow" style={{ marginBottom: 6 }}>{eyebrow}</div>}<h2 className="h2">{title}</h2></div>
+    {right}
+  </div>
+);
+function useLoading(ms, dep) {
+  const [l, setL] = useState(true);
+  useEffect(() => { setL(true); const t = setTimeout(() => setL(false), ms); return () => clearTimeout(t); }, [dep]);
+  return l;
+}
+const Skel = ({ h = 150, r = 16 }) => <div className="skel" style={{ height: h, borderRadius: r }} aria-hidden="true"><span /></div>;
+function useCount(target, ms = 1100, dep) {
+  const [v, setV] = useState(0);
+  useEffect(() => {
+    let raf, t0 = null;
+    const step = (t) => { if (t0 == null) t0 = t; const p = clamp((t - t0) / ms, 0, 1); setV(Math.round(target * (1 - Math.pow(1 - p, 3)))); if (p < 1) raf = requestAnimationFrame(step); };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [target, dep]);
+  return v;
+}
+
+/* ------------------------------ charts ------------------------------ */
+function Gauge({ value, size = 128 }) {
+  const r = 54, c = 2 * Math.PI * r;
+  const [p, setP] = useState(0);
+  useEffect(() => { setP(0); const t = setTimeout(() => setP(value), 80); return () => clearTimeout(t); }, [value]);
+  const shown = useCount(value, 1200, value);
+  return (
+    <div style={{ position: 'relative', width: size, height: size, flex: 'none' }} role="img" aria-label={`Sleep score ${value} out of 100`}>
+      <svg width={size} height={size} viewBox="0 0 128 128" style={{ transform: 'rotate(-90deg)' }}>
+        <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#C4BCFF" /><stop offset="1" stopColor="#7566D6" /></linearGradient></defs>
+        <circle cx="64" cy="64" r={r} fill="none" stroke="rgba(255,255,255,.07)" strokeWidth="10" />
+        <circle cx="64" cy="64" r={r} fill="none" stroke="url(#gg)" strokeWidth="10" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c * (1 - p / 100)} style={{ transition: 'stroke-dashoffset 1.3s cubic-bezier(.2,.8,.2,1)', filter: 'drop-shadow(0 0 8px rgba(139,127,224,.6))' }} />
+      </svg>
+      <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="num" style={{ fontSize: 38, fontWeight: 800, letterSpacing: '-.04em', color: 'var(--title)', lineHeight: 1 }}>{shown}</div>
+        <div className="mute" style={{ marginTop: 3 }}>/ 100</div>
+      </div>
+    </div>
+  );
+}
+
+function Sparkle({ x, y, s = 1, fill = '#EDEBF5' }) {
+  return <path transform={`translate(${x} ${y}) scale(${s})`} d="M0-5 1.400-1.400 5 0 1.400 1.400 0 5-1.400 1.400-5 0-1.400-1.400z" fill={fill} />;
+}
+
+function Hypnogram({ night, selected, onSelect }) {
+  const W = 326, H = 178, pl = 40, pr = 4, pt = 14, pb = 24, rh = (H - pt - pb) / 4;
+  const x = (t) => pl + (t / night.total) * (W - pl - pr), y = (st) => pt + st * rh;
+  const ticks = [];
+  for (let m = Math.ceil((night.bed + 30) / 120) * 120; m < night.bed + night.total - 25; m += 120) ticks.push(m);
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Sleep stages across the night" style={{ display: 'block', overflow: 'visible' }}>
+      <defs><clipPath id="hypc"><rect x="0" y="0" width={W} height={H} className="clip-reveal" /></clipPath></defs>
+      {[0, 1, 2, 3].map((st) => (
+        <g key={st}>
+          <line x1={pl} x2={W - pr} y1={y(st) + rh / 2} y2={y(st) + rh / 2} stroke="rgba(255,255,255,.05)" strokeDasharray="2 4" />
+          <text x="0" y={y(st) + rh / 2 + 3.500} className="ax">{STAGE[st].n}</text>
+        </g>
+      ))}
+      {ticks.map((m) => <text key={m} x={x(m - night.bed)} y={H - 6} textAnchor="middle" className="ax">{fmtClock(m)}</text>)}
+      <g clipPath="url(#hypc)">
+        {night.segs.map((g, i) => {
+          const nx = night.segs[i + 1];
+          return nx ? <line key={'c' + i} x1={x(g.e)} x2={x(g.e)} y1={y(g.st) + rh / 2} y2={y(nx.st) + rh / 2} stroke="rgba(255,255,255,.14)" strokeWidth="1" /> : null;
+        })}
+        {night.segs.map((g, i) => <rect key={i} x={x(g.s)} y={y(g.st) + rh * 0.2} width={Math.max(2.500, x(g.e) - x(g.s) - 0.800)} height={rh * 0.6} rx="4" fill={STAGE[g.st].c} opacity={g.st === 0 ? 0.95 : 0.92} />)}
+      </g>
+      <g className="fade-d">
+        {night.markers.map((m, i) => {
+          const cx = x(m.t), cy = y(stageAt(night.segs, m.t)) + rh * 0.2 - 6, on = selected === i;
+          return (
+            <g key={i} className="mk" role="button" tabIndex={0} aria-label={`${m.title}, tap for details`} onClick={() => onSelect(on ? null : i)} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(on ? null : i); } }}>
+              <circle cx={cx} cy={cy} r="20" fill="transparent" />
+              <circle cx={cx} cy={cy} r={on ? 13 : 11} fill="rgba(139,127,224,.25)" className="halo" />
+              <circle cx={cx} cy={cy} r="8.500" fill="#0E1330" stroke={on ? '#fff' : '#A89EF0'} strokeWidth="1.500" />
+              <Sparkle x={cx} y={cy} s={0.85} />
+            </g>
+          );
+        })}
+      </g>
+    </svg>
+  );
+}
+
+function TrendChart({ data, selected, onSelect }) {
+  const W = 326, H = 168, pl = 26, pt = 22, pb = 22, n = data.length, bw = (W - pl) / n, barW = Math.min(28, bw * 0.62);
+  const y = (v) => pt + (H - pt - pb) * (1 - (v - 50) / 50);
+  const sel = selected == null ? n - 1 : selected;
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Sleep score trend" style={{ display: 'block', overflow: 'visible' }}>
+      <defs>
+        <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#B3A9FA" /><stop offset="1" stopColor="#6558C9" /></linearGradient>
+        <linearGradient id="barL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#8B7FE0" stopOpacity=".45" /><stop offset="1" stopColor="#8B7FE0" stopOpacity=".18" /></linearGradient>
+      </defs>
+      {[60, 80, 100].map((v) => <g key={v}><line x1={pl} x2={W} y1={y(v)} y2={y(v)} stroke="rgba(255,255,255,.06)" strokeDasharray="2 4" /><text x="0" y={y(v) + 3.500} className="ax">{v}</text></g>)}
+      {data.map((d, i) => {
+        const cx = pl + bw * i + bw / 2, top = y(d.score), on = i === sel;
+        return (
+          <g key={d.id} style={{ cursor: 'pointer' }} role="button" tabIndex={0} aria-label={`${d.full}: score ${d.score}`} onClick={() => onSelect(i)} onKeyDown={(e) => { if (e.key === 'Enter') onSelect(i); }}>
+            <rect x={cx - bw / 2} y={pt - 10} width={bw} height={H - pt - pb + 10} fill="transparent" />
+            <rect className="bar-grow" style={{ animationDelay: i * (n > 10 ? 14 : 45) + 'ms' }} x={cx - barW / 2} y={top} width={barW} height={H - pb - top} rx={Math.min(6, barW / 2.500)} fill={d.legacy ? 'url(#barL)' : 'url(#bar)'} opacity={on ? 1 : 0.78} stroke={on ? '#EDEBF5' : 'none'} strokeWidth="1" />
+            {(n <= 7 || i % 5 === 0 || i === n - 1) && <text x={cx} y={H - 6} textAnchor="middle" className="ax">{d.label}</text>}
+          </g>
+        );
+      })}
+      {(() => { const d = data[sel], cx = pl + bw * sel + bw / 2, top = y(d.score); return <g className="fade-d"><rect x={cx - 17} y={top - 22} width="34" height="17" rx="8.500" fill="#EDEBF5" /><text x={cx} y={top - 10} textAnchor="middle" fontSize="11" fontWeight="700" fill="#0A0E1F">{d.score}</text></g>; })()}
+    </svg>
+  );
+}
+
+function NoiseTimeline({ night, selected, onSelect }) {
+  const W = 326, H = 178, pl = 30, pr = 4, pt = 10, pb = 24;
+  const x = (t) => pl + (t / night.total) * (W - pl - pr), y = (db) => pt + (H - pt - pb) * (1 - (db - 25) / 60);
+  const line = (arr) => arr.map((v, i) => `${i ? 'L' : 'M'}${x(i * 5).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');
+  const ticks = [];
+  for (let m = Math.ceil((night.bed + 30) / 120) * 120; m < night.bed + night.total - 25; m += 120) ticks.push(m);
+  const pathA = line(night.amb);
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Ambient noise level over the night" style={{ display: 'block', overflow: 'visible' }}>
+      <defs>
+        <linearGradient id="ambf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#9C99AE" stopOpacity=".28" /><stop offset="1" stopColor="#9C99AE" stopOpacity="0" /></linearGradient>
+        <clipPath id="ntc"><rect x="0" y="0" width={W} height={H} className="clip-reveal" /></clipPath>
+      </defs>
+      {[30, 50, 70].map((v) => <g key={v}><line x1={pl} x2={W - pr} y1={y(v)} y2={y(v)} stroke="rgba(255,255,255,.06)" strokeDasharray="2 4" /><text x="0" y={y(v) + 3.500} className="ax">{v} dB</text></g>)}
+      {ticks.map((m) => <text key={m} x={x(m - night.bed)} y={H - 6} textAnchor="middle" className="ax">{fmtClock(m)}</text>)}
+      <g clipPath="url(#ntc)">
+        <path d={`${pathA} L${x(night.total)} ${y(25)} L${x(0)} ${y(25)}Z`} fill="url(#ambf)" />
+        <path d={pathA} fill="none" stroke="#8E8AA6" strokeWidth="1.500" strokeLinejoin="round" />
+        <path d={line(night.heard)} fill="none" stroke="#A89EF0" strokeWidth="2.200" strokeLinejoin="round" style={{ filter: 'drop-shadow(0 0 5px rgba(139,127,224,.7))' }} />
+      </g>
+      <g className="fade-d">
+        {night.events.filter((e) => e.db >= 67 || e.woke).map((e) => {
+          const i = night.events.indexOf(e), idx = clamp(Math.round(e.t / 5), 0, night.amb.length - 1), on = selected === i, ok = e.pct >= 80;
+          return (
+            <g key={i} className="mk" role="button" tabIndex={0} aria-label={`${e.label} at ${fmtClock(night.bed + e.t)}`} onClick={() => onSelect(on ? null : i)} onKeyDown={(k) => { if (k.key === 'Enter') onSelect(on ? null : i); }}>
+              <circle cx={x(e.t)} cy={y(night.amb[idx])} r="16" fill="transparent" />
+              {on && <circle cx={x(e.t)} cy={y(night.amb[idx])} r="10" fill="none" stroke="#fff" strokeWidth="1.200" opacity=".8" />}
+              <circle cx={x(e.t)} cy={y(night.amb[idx])} r="5" fill={ok ? '#A89EF0' : '#8E8AA6'} stroke="#0E1330" strokeWidth="1.500" />
+            </g>
+          );
+        })}
+      </g>
+    </svg>
+  );
+}
+
+function HourBars({ buckets, selected, onSelect }) {
+  const W = 326, H = 150, pl = 6, pt = 8, pb = 24, n = buckets.length, bw = (W - pl) / n, mx = Math.max(1, ...buckets.map((b) => b.total));
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Noise events by hour" style={{ display: 'block', overflow: 'visible' }}>
+      {buckets.map((b, i) => {
+        const cx = pl + bw * i + bw / 2, bwid = bw * 0.62, hh = (H - pt - pb), hc = (b.cancelled / mx) * hh, hp = (b.partly / mx) * hh, on = selected === i;
+        return (
+          <g key={i} style={{ cursor: 'pointer' }} role="button" tabIndex={0} aria-label={`${b.label}: ${b.total} events`} onClick={() => onSelect(on ? null : i)} onKeyDown={(e) => { if (e.key === 'Enter') onSelect(on ? null : i); }}>
+            <rect x={cx - bw / 2} y={pt} width={bw} height={hh} fill={on ? 'rgba(139,127,224,.1)' : 'transparent'} rx="8" />
+            <rect className="bar-grow" style={{ animationDelay: i * 50 + 'ms' }} x={cx - bwid / 2} y={pt + hh - hc} width={bwid} height={Math.max(0, hc)} rx="4" fill="#A89EF0" />
+            <rect className="bar-grow" style={{ animationDelay: i * 50 + 'ms' }} x={cx - bwid / 2} y={pt + hh - hc - hp} width={bwid} height={Math.max(0, hp)} rx="4" fill="#8E8AA6" />
+            <text x={cx} y={H - 6} textAnchor="middle" className="ax">{b.short}</text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+function VSlider({ value, onChange, label, disabled }) {
+  const rail = useRef(null), drag = useRef(false);
+  const upd = (e) => { const r = rail.current.getBoundingClientRect(); onChange(clamp(Math.round(((r.bottom - e.clientY) / r.height) * 100), 0, 100)); };
+  return (
+    <div className={'vs' + (disabled ? ' dis' : '')} role="slider" tabIndex={disabled ? -1 : 0} aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(value)} aria-orientation="vertical"
+      onPointerDown={(e) => { if (disabled) return; drag.current = true; e.currentTarget.setPointerCapture(e.pointerId); upd(e); }}
+      onPointerMove={(e) => { if (drag.current) upd(e); }}
+      onPointerUp={() => { drag.current = false; }} onPointerCancel={() => { drag.current = false; }}
+      onKeyDown={(e) => { if (disabled) return; if (e.key === 'ArrowUp' || e.key === 'ArrowRight') { e.preventDefault(); onChange(clamp(value + 5, 0, 100)); } if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') { e.preventDefault(); onChange(clamp(value - 5, 0, 100)); } }}>
+      <div className="vs-rail" ref={rail}><div className="vs-fill" style={{ height: value + '%' }} /></div>
+      <div className="vs-thumb" style={{ bottom: value * 1.5 }} />
+    </div>
+  );
+}
+
+function EqPreview({ eq }) {
+  const ref = useRef(null), a = useRef(null), b = useRef(null), eqRef = useRef(eq);
+  eqRef.current = eq;
+  useEffect(() => {
+    let raf;
+    const W = 300, H = 60, mid = H / 2;
+    const loop = (t) => {
+      const e = eqRef.current, ts = t / 1000;
+      let da = '', db = '';
+      for (let i = 0; i <= 100; i++) {
+        const px = (i / 100) * W, p = i / 100 * Math.PI * 2;
+        const lo = Math.sin(p * 2 - ts * 2), mi = Math.sin(p * 6 - ts * 4.500) * 0.7, hi = Math.sin(p * 17 - ts * 9) * 0.4;
+        const raw = (lo + mi + hi) * 9, res = (lo * (1 - e.low / 100 * 0.96) + mi * (1 - e.mid / 100 * 0.96) + hi * (1 - e.high / 100 * 0.96)) * 9;
+        da += `${i ? 'L' : 'M'}${px.toFixed(1)} ${(mid + raw).toFixed(1)}`;
+        db += `${i ? 'L' : 'M'}${px.toFixed(1)} ${(mid + res).toFixed(1)}`;
+      }
+      if (a.current) a.current.setAttribute('d', da);
+      if (b.current) b.current.setAttribute('d', db);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+  return (
+    <svg ref={ref} viewBox="0 0 300 60" width="100%" height="60" role="img" aria-label="Live preview of noise before and after cancellation" preserveAspectRatio="none" style={{ display: 'block' }}>
+      <path ref={a} fill="none" stroke="#6F6D88" strokeWidth="1.200" opacity=".8" />
+      <path ref={b} fill="none" stroke="#A89EF0" strokeWidth="2" style={{ filter: 'drop-shadow(0 0 4px rgba(139,127,224,.8))' }} />
+    </svg>
+  );
+}
+
+function StageBars({ night }) {
+  const rows = [['Deep', night.deep, 3], ['Light', night.light, 2], ['REM', night.rem, 1], ['Awake', night.awake, 0]];
+  const total = night.deep + night.light + night.rem + night.awake;
+  const [go, setGo] = useState(false);
+  useEffect(() => { setGo(false); const t = setTimeout(() => setGo(true), 120); return () => clearTimeout(t); }, [night.id]);
+  return (
+    <div className="stack" style={{ gap: 14 }}>
+      {rows.map(([name, m, st]) => (
+        <div key={name}>
+          <div className="row between" style={{ marginBottom: 7 }}>
+            <span className="row gap2 title-c" style={{ fontSize: 14, fontWeight: 600 }}><i style={{ width: 10, height: 10, borderRadius: 4, background: STAGE[st].c, display: 'inline-block' }} />{name}</span>
+            <span className="num title-c" style={{ fontSize: 14, fontWeight: 600 }}>{fmtDur(m)} <span className="mute" style={{ marginLeft: 4 }}>{Math.round((m / total) * 100)}%</span></span>
+          </div>
+          <div className="meter"><i style={{ width: go ? (m / total) * 100 + '%' : '0%', background: STAGE[st].c }} /></div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* --------------------------- splash & shell --------------------------- */
+function Splash({ onDone }) {
+  const [out, setOut] = useState(false);
+  useEffect(() => { const a = setTimeout(() => setOut(true), 1500), b = setTimeout(onDone, 2050); return () => { clearTimeout(a); clearTimeout(b); }; }, []);
+  return (
+    <div className={'splash' + (out ? ' out' : '')} role="status" aria-label="Shhh is loading">
+      <div className="halo" />
+      <Logo size={68} />
+      <p className="tag">Sleep, uninterrupted. Powered by AI.</p>
+    </div>
+  );
+}
+
+const TABS = [
+  { id: 'tonight', label: 'Tonight', icon: 'moon' },
+  { id: 'sleep', label: 'Sleep', icon: 'steps' },
+  { id: 'noise', label: 'Noise', icon: 'wave' },
+  { id: 'coach', label: 'Coach', icon: 'chat' },
+  { id: 'earplugs', label: 'Earplugs', icon: 'earbud' }
+];
+function TabBar() {
+  const { ui, go } = useApp();
+  return (
+    <nav className="tabbar" aria-label="Main navigation">
+      {TABS.map((t) => (
+        <button key={t.id} type="button" className={'tab' + (ui.tab === t.id ? ' active' : '')} aria-current={ui.tab === t.id ? 'page' : undefined} onClick={() => go(t.id)}>
+          <Icon name={t.icon} size={24} stroke={ui.tab === t.id ? 2.100 : 1.800} />{t.label}
+        </button>
+      ))}
+    </nav>
+  );
+}
+
+function StatusBar() {
+  const [now, setNow] = useState(new Date());
+  useEffect(() => { const i = setInterval(() => setNow(new Date()), 15000); return () => clearInterval(i); }, []);
+  return (
+    <>
+      <div className="island" />
+      <div className="statusbar" aria-hidden="true">
+        <span className="num">{now.getHours()}:{pad(now.getMinutes())}</span>
+        <span className="sb-r">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="#EDEBF5"><rect x="0" y="8" width="3" height="4" rx="1" /><rect x="5" y="5.500" width="3" height="6.500" rx="1" /><rect x="10" y="3" width="3" height="9" rx="1" /><rect x="15" y="0" width="3" height="12" rx="1" /></svg>
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="#EDEBF5" strokeWidth="1.800" strokeLinecap="round"><path d="M1 4.200a10 10 0 0 1 14 0M3.500 7a6.500 6.500 0 0 1 9 0M6 9.800a3 3 0 0 1 4 0" /></svg>
+          <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x=".5" y=".5" width="22" height="12" rx="3.500" stroke="#EDEBF5" opacity=".45" /><rect x="2" y="2" width="17" height="9" rx="2" fill="#EDEBF5" /><path d="M24 4.500v4" stroke="#EDEBF5" opacity=".5" strokeLinecap="round" /></svg>
+        </span>
+      </div>
+      <div className="home-ind" />
+    </>
+  );
+}
+
+function ToastHost() {
+  const { toastMsg } = useApp();
+  if (!toastMsg) return null;
+  return <div key={toastMsg.k} className="toast" role="status"><span className="tick"><Icon name={toastMsg.icon} size={14} stroke={2.600} /></span>{toastMsg.msg}</div>;
+}
+
+/* ------------------------------ sheets ------------------------------ */
+function SheetHost() {
+  const { ui, closeSheet } = useApp();
+  const [closing, setClosing] = useState(false);
+  const id = ui.sheet;
+  if (!id) return null;
+  const close = () => { setClosing(true); setTimeout(() => { setClosing(false); closeSheet(); }, 220); };
+  const C = { profiles: ProfilesSheet, alarm: AlarmSheet, forecast: ForecastSheet, find: FindSheet, fit: FitSheet, privacy: PrivacySheet, help: HelpSheet, reset: ResetSheet }[id];
+  return (
+    <div className={'sheet-wrap' + (closing ? ' closing' : '')}>
+      <div className="sheet-back" onClick={close} />
+      <div className="sheet" role="dialog" aria-modal="true"><div className="grab" /><C close={close} /></div>
+    </div>
+  );
+}
+const SheetTitle = ({ title, sub, ai }) => (
+  <div style={{ marginBottom: 16 }}>
+    <div className="row gap2" style={{ marginBottom: 4 }}><h2 className="h2" style={{ fontSize: 22 }}>{title}</h2>{ai && <AIBadge />}</div>
+    {sub && <p className="small">{sub}</p>}
+  </div>
+);
+
+function ProfilesSheet({ close }) {
+  const { s, applyProfile, toast } = useApp();
+  return (
+    <>
+      <SheetTitle title="Noise profile" sub="Pick the profile that fits tonight. It syncs to your earplugs instantly." />
+      <div className="stack" style={{ gap: 10 }}>
+        {PROFILES.map((p) => (
+          <button key={p.id} type="button" className="card pad-sm press row gap3" style={{ borderColor: s.profile === p.id ? 'rgba(168,158,240,.7)' : undefined, background: s.profile === p.id ? 'rgba(139,127,224,.12)' : undefined, minHeight: 64 }}
+            onClick={() => { applyProfile(p.id); toast(`${p.name} selected — synced to your earplugs`); close(); }}>
+            <span className="ico"><Icon name={p.icon} size={20} /></span>
+            <span style={{ flex: 1, minWidth: 0 }}><span className="row gap2"><span className="h3">{p.name}</span>{p.ai && <AIBadge />}</span><span className="small" style={{ display: 'block' }}>{p.desc}</span></span>
+            {s.profile === p.id && <Icon name="check" size={20} style={{ color: 'var(--accent2)' }} />}
+          </button>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function AlarmSheet({ close }) {
+  const { s, set, toast } = useApp();
+  const [on, setOn] = useState(s.alarm.on), [from, setFrom] = useState(s.alarm.from), [to, setTo] = useState(s.alarm.to);
+  const bad = toMin(to) - toMin(from) < 10;
+  return (
+    <>
+      <SheetTitle title="Smart alarm" ai sub="Shhh AI wakes you during light sleep, somewhere inside this window." />
+      <div className="card pad-sm row between" style={{ marginBottom: 12 }}><span className="h3">Smart alarm</span><Toggle on={on} onChange={setOn} label="Smart alarm" /></div>
+      <div className="row gap3" style={{ opacity: on ? 1 : 0.45, pointerEvents: on ? 'auto' : 'none' }}>
+        <label style={{ flex: 1 }}><span className="mute" style={{ display: 'block', marginBottom: 6 }}>Earliest</span><input type="time" className="timeinp" style={{ width: '100%' }} value={from} onChange={(e) => setFrom(e.target.value)} aria-label="Earliest wake-up time" /></label>
+        <label style={{ flex: 1 }}><span className="mute" style={{ display: 'block', marginBottom: 6 }}>Latest</span><input type="time" className="timeinp" style={{ width: '100%' }} value={to} onChange={(e) => setTo(e.target.value)} aria-label="Latest wake-up time" /></label>
+      </div>
+      {on && bad && <p className="small" style={{ color: 'var(--warn)', marginTop: 10 }}>Leave at least 10 minutes between the two times so I can find a light-sleep moment.</p>}
+      <button type="button" className="btn btn-primary btn-block" style={{ marginTop: 20 }} disabled={on && (bad || !from || !to)} onClick={() => { set({ alarm: { on, from, to } }); toast(on ? `Smart alarm set for ${fmtShort(toMin(from))}–${fmtShort(toMin(to))}` : 'Smart alarm turned off'); close(); }}>Save alarm</button>
+    </>
+  );
+}
+
+function ForecastSheet({ close }) {
+  const { s, set, toast } = useApp();
+  const opts = [{ v: 80, t: 'Standard', d: 'Low-frequency cancellation at 80%' }, { v: 92, t: 'Stronger', d: 'Recommended for street noise · 92%' }, { v: 98, t: 'Maximum', d: 'Strongest low-frequency cancellation · 98%' }];
+  const [v, setV] = useState(opts.reduce((a, o) => (Math.abs(o.v - s.eq.low) < Math.abs(a - s.eq.low) ? o.v : a), 92));
+  return (
+    <>
+      <SheetTitle title="Adjust tonight" ai sub="Choose how hard Shhh should cancel low-frequency street noise tonight." />
+      <div className="stack" style={{ gap: 10 }}>
+        {opts.map((o) => (
+          <button key={o.v} type="button" className="card pad-sm press row gap3" style={{ minHeight: 64, borderColor: v === o.v ? 'rgba(168,158,240,.7)' : undefined, background: v === o.v ? 'rgba(139,127,224,.12)' : undefined }} onClick={() => setV(o.v)}>
+            <span style={{ flex: 1 }}><span className="h3" style={{ display: 'block' }}>{o.t}</span><span className="small">{o.d}</span></span>
+            {v === o.v && <Icon name="check" size={20} style={{ color: 'var(--accent2)' }} />}
+          </button>
+        ))}
+      </div>
+      <button type="button" className="btn btn-primary btn-block" style={{ marginTop: 18 }} onClick={() => { set((p) => ({ eq: { ...p.eq, low: v }, forecast: 'adjusted' })); toast('Forecast adjusted — synced to your earplugs'); close(); }}>Apply</button>
+    </>
+  );
+}
+
+function FindSheet() {
+  const [play, setPlay] = useState(null);
+  useEffect(() => { if (!play) return undefined; const t = setTimeout(() => setPlay(null), 9000); return () => clearTimeout(t); }, [play]);
+  return (
+    <>
+      <SheetTitle title="Find my earplugs" sub="Play a soft, rising chime from a single earplug so you can locate it." />
+      <div className="row gap3" style={{ justifyContent: 'center', margin: '8px 0 20px' }}>
+        {['Left', 'Right'].map((side) => (
+          <div key={side} style={{ flex: 1, textAlign: 'center' }}>
+            <div style={{ position: 'relative', width: 84, height: 84, margin: '0 auto 12px' }}>
+              {play === side && <><span className="find-ring" /><span className="find-ring" style={{ animationDelay: '.7s' }} /></>}
+              <div className="ico" style={{ position: 'absolute', inset: 0, width: 84, height: 84, borderRadius: '50%', background: play === side ? 'rgba(139,127,224,.3)' : undefined }}><Icon name="earbud" size={34} /></div>
+            </div>
+            <div className="h3" style={{ marginBottom: 8 }}>{side} earplug</div>
+            {play === side ? <div className="wavebars" style={{ justifyContent: 'center', margin: '0 auto 8px' }}>{[0, 0.15, 0.3, 0.1, 0.25].map((d, i) => <i key={i} style={{ animationDelay: d + 's' }} />)}</div> : <div style={{ height: 30 }} />}
+            <button type="button" className={'btn btn-sm ' + (play === side ? 'btn-primary' : 'btn-soft')} onClick={() => setPlay(play === side ? null : side)}>{play === side ? 'Stop' : 'Play sound'}</button>
+          </div>
+        ))}
+      </div>
+      <p className="mute" style={{ textAlign: 'center' }}>The chime stops by itself after 9 seconds.</p>
+    </>
+  );
+}
+
+function FitSheet() {
+  const { s, set } = useApp();
+  const [phase, setPhase] = useState('idle'), [p, setP] = useState(0);
+  const run = () => {
+    setPhase('run'); setP(0);
+    const t0 = Date.now();
+    const iv = setInterval(() => {
+      const k = clamp((Date.now() - t0) / 3600, 0, 1); setP(k);
+      if (k >= 1) { clearInterval(iv); const l = 93 + Math.round(Math.random() * 5), r = 84 + Math.round(Math.random() * 8); set({ fit: { l, r } }); setPhase('done'); }
+    }, 60);
+  };
+  const f = s.fit;
+  const q = (v) => (v >= 92 ? 'Excellent seal' : v >= 85 ? 'Good seal' : 'Loose fit');
+  return (
+    <>
+      <SheetTitle title="Ear tip fit test" sub="Shhh plays a quiet test tone and measures how well each tip seals your ear canal." />
+      {phase === 'idle' && <>
+        <div className="card pad-sm row gap3" style={{ marginBottom: 16 }}><span className="ico"><Icon name="ear" size={20} /></span><p className="small">Sit somewhere quiet, insert both earplugs and stay still for a few seconds.</p></div>
+        {f && <p className="mute" style={{ marginBottom: 14, textAlign: 'center' }}>Last test: left {f.l}% · right {f.r}%</p>}
+        <button type="button" className="btn btn-primary btn-block" onClick={run}>Start fit test</button>
+      </>}
+      {phase === 'run' && <div style={{ textAlign: 'center', padding: '10px 0 6px' }}>
+        <div className="wavebars" style={{ justifyContent: 'center', height: 30, marginBottom: 16 }}>{[0, 0.2, 0.1, 0.35, 0.15, 0.3, 0.05].map((d, i) => <i key={i} style={{ animationDelay: d + 's' }} />)}</div>
+        <p className="h3" style={{ marginBottom: 4 }}>{p < 0.5 ? 'Playing test tone…' : 'Measuring seal…'}</p>
+        <p className="small" style={{ marginBottom: 16 }}>Stay still for a moment.</p>
+        <div className="meter"><i style={{ width: p * 100 + '%', transition: 'none' }} /></div>
+      </div>}
+      {phase === 'done' && f && <>
+        <div className="stack" style={{ gap: 10, marginBottom: 16 }}>
+          {[['Left', f.l], ['Right', f.r]].map(([n, v]) => (
+            <div key={n} className="card pad-sm"><div className="row between" style={{ marginBottom: 8 }}><span className="h3">{n} earplug</span><span className={'pill ' + (v >= 92 ? '' : 'warn')}>{q(v)} · {v}%</span></div><div className="meter"><i style={{ width: v + '%' }} /></div></div>
+          ))}
+        </div>
+        {Math.min(f.l, f.r) < 92 && <p className="small" style={{ marginBottom: 14 }}>The right tip could seal better. Try the medium size or rotate it slightly while inserting.</p>}
+        <button type="button" className="btn btn-ghost btn-block" onClick={run}>Test again</button>
+      </>}
+    </>
+  );
+}
+
+function PrivacySheet() {
+  const items = [['shield', 'On-device analysis', 'Shhh AI runs on your phone and earplugs. Noise recognition and sleep staging never leave your device.'], ['volume', 'No audio recording', 'Your audio is never recorded or uploaded. Only short noise labels like "bus, 71 dB" are kept, locally.'], ['lock', 'You stay in control', 'Sharing anonymous data to improve Shhh AI is off by default. You can change it anytime in Profile.']];
+  return (
+    <>
+      <SheetTitle title="Privacy" sub="Sleep is personal. Here is how Shhh treats yours." />
+      <div className="stack" style={{ gap: 10 }}>{items.map(([i, t, d]) => <div key={t} className="card pad-sm row gap3" style={{ alignItems: 'flex-start' }}><span className="ico sm"><Icon name={i} size={18} /></span><div><div className="h3" style={{ marginBottom: 2 }}>{t}</div><p className="small">{d}</p></div></div>)}</div>
+    </>
+  );
+}
+
+function HelpSheet() {
+  const [open, setOpen] = useState(0);
+  const faq = [
+    ['Do my earplugs work without the app?', 'Yes. Active noise cancellation runs on the earplugs themselves. The app makes them smarter by learning your nights and tuning them automatically.'],
+    ['How does Adaptive AI work?', 'Shhh AI listens for noise patterns, recognises what they are and adjusts cancellation across low, mid and high frequencies all night.'],
+    ['How accurate are the sleep stages?', 'Stages are estimated from in-ear motion and heart rate. They are great for trends but Shhh is not a medical device.'],
+    ['Why are voices harder to cancel?', 'Active cancellation works best on steady low frequencies. Voices live in the mid range and change quickly, so Shhh reduces them rather than cancelling them fully.'],
+    ['How do I reset everything?', 'Open Profile and choose "Reset demo data". This clears your nights, settings and chat.']
+  ];
+  return (
+    <>
+      <SheetTitle title="Help" sub="Quick answers about your Shhh earplugs and the app." />
+      <div className="stack" style={{ gap: 8 }}>
+        {faq.map(([q, a], i) => (
+          <div key={q} className="card pad-sm">
+            <button type="button" className="row between" style={{ width: '100%', minHeight: 44 }} aria-expanded={open === i} onClick={() => setOpen(open === i ? -1 : i)}>
+              <span className="h3" style={{ paddingRight: 10 }}>{q}</span><Icon name="chevD" size={18} style={{ transform: open === i ? 'rotate(180deg)' : 'none', transition: 'transform .3s', flex: 'none' }} />
+            </button>
+            {open === i && <p className="small" style={{ paddingTop: 6, animation: 'fade .3s both' }}>{a}</p>}
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function ResetSheet({ close }) {
+  const { reset } = useApp();
+  return (
+    <>
+      <SheetTitle title="Reset demo data?" sub="This clears your nights, chat, profile and earplug settings, then restarts onboarding." />
+      <div className="row gap3"><button type="button" className="btn btn-ghost" style={{ flex: 1 }} onClick={close}>Cancel</button><button type="button" className="btn btn-danger" style={{ flex: 1 }} onClick={() => { close(); setTimeout(reset, 240); }}>Reset everything</button></div>
+    </>
+  );
+}
+
+/* ----------------------------- onboarding ----------------------------- */
+const Bud = ({ x, flip, glow }) => (
+  <g style={{ transform: `translate(${x}px,126px)`, transition: 'transform 1.1s cubic-bezier(.2,.8,.2,1)' }}>
+    <g transform={`scale(${flip ? -1 : 1} 1)`}>
+      <rect x="-7" y="8" width="14" height="46" rx="7" fill="url(#budg)" stroke="rgba(255,255,255,.16)" />
+      <ellipse cx="0" cy="-8" rx="25" ry="28" fill="url(#budg)" stroke="rgba(255,255,255,.2)" />
+      <ellipse cx="-6" cy="-16" rx="9" ry="12" fill="rgba(255,255,255,.07)" />
+      <circle cx="3" cy="-6" r="3.500" fill={glow ? '#C4BCFF' : '#4A5088'} style={{ filter: glow ? 'drop-shadow(0 0 6px #A89EF0)' : 'none', transition: 'fill .6s' }} />
+    </g>
+  </g>
+);
+function PairArt({ state }) {
+  const busy = state === 'busy', done = state === 'done', near = busy || done;
+  return (
+    <div style={{ position: 'relative', width: 300, height: 260, maxWidth: '100%' }}>
+      <svg viewBox="0 0 300 260" width="100%" height="100%" aria-hidden="true">
+        <defs><linearGradient id="budg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#3B4390" /><stop offset="1" stopColor="#1A2050" /></linearGradient></defs>
+        {[0, 1, 2].map((i) => <circle key={i} className="ring" cx="150" cy="126" r="44" fill="none" stroke="#A89EF0" strokeWidth="1.500" style={{ animationDelay: i + 's', opacity: near ? 1 : 0.35 }} />)}
+        <line x1="82" y1="126" x2="112" y2="126" stroke="#A89EF0" strokeWidth="2" strokeDasharray="3 6" strokeLinecap="round" className={busy ? 'dash' : ''} opacity={near ? 0.9 : 0.25} />
+        <line x1="188" y1="126" x2="218" y2="126" stroke="#A89EF0" strokeWidth="2" strokeDasharray="3 6" strokeLinecap="round" className={busy ? 'dash' : ''} opacity={near ? 0.9 : 0.25} />
+        <Bud x={near ? 62 : 44} glow={near} />
+        <Bud x={near ? 238 : 256} flip glow={near} />
+      </svg>
+      <div style={{ position: 'absolute', left: '50%', top: 126 / 260 * 100 + '%', width: 70, height: 70, margin: '-35px 0 0 -35px', borderRadius: '50%', background: done ? 'rgba(123,216,180,.16)' : 'rgba(139,127,224,.2)', border: '1px solid ' + (done ? 'rgba(123,216,180,.5)' : 'rgba(168,158,240,.5)'), display: 'flex', alignItems: 'center', justifyContent: 'center', color: done ? 'var(--ok)' : '#CFC8FF', boxShadow: '0 0 40px rgba(139,127,224,.35)', transition: 'all .5s' }}>
+        <Icon name={done ? 'check' : 'bt'} size={30} stroke={2.200} />
+      </div>
+    </div>
+  );
+}
+const SOURCES = [['Traffic', 'bus'], ['Partner snoring', 'zzz'], ['Neighbors', 'users'], ['Bar / music bass', 'music'], ['Voices', 'voices'], ['Construction', 'alert']];
+
+function Onboarding() {
+  const { s, set, toast } = useApp();
+  const [i, setI] = useState(0), [dx, setDx] = useState(0), [drag, setDrag] = useState(false);
+  const [pair, setPair] = useState(s.paired ? 'done' : 'idle');
+  const st = useRef(null);
+  const last = i === 3;
+  const finish = () => set({ onboarded: true, paired: true });
+  const doPair = () => { setPair('busy'); setTimeout(() => { setPair('done'); set({ paired: true }); toast('Shhh earplugs connected', 'bt'); }, 2600); };
+  const down = (e) => { st.current = { x: e.clientX, cap: false }; };
+  const move = (e) => {
+    if (!st.current) return;
+    const d = e.clientX - st.current.x;
+    if (!st.current.cap && Math.abs(d) > 10) { st.current.cap = true; setDrag(true); try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ } }
+    if (st.current.cap) setDx((i === 0 && d > 0) || (i === 3 && d < 0) ? d * 0.25 : d);
+  };
+  const up = () => { if (!st.current) return; if (Math.abs(dx) > 60) setI((v) => clamp(v + (dx < 0 ? 1 : -1), 0, 3)); setDx(0); setDrag(false); st.current = null; };
+  const toggleSrc = (n) => set((p) => ({ sources: p.sources.includes(n) ? p.sources.filter((x) => x !== n) : [...p.sources, n] }));
+  const Slide = ({ children }) => <section className="ob-slide" aria-roledescription="slide">{children}</section>;
+  return (
+    <div className="ob" role="region" aria-label="Welcome to Shhh">
+      {!last && <button type="button" onClick={finish} style={{ position: 'absolute', top: 'calc(var(--sat) + 8px)', right: 14, zIndex: 5, minHeight: 44, minWidth: 56, padding: '0 14px', color: 'var(--body)', fontWeight: 600, fontSize: 15 }}>Skip</button>}
+      <div className="ob-track" style={{ transform: `translateX(calc(${-i * 100}% + ${dx}px))`, transition: drag ? 'none' : 'transform .5s cubic-bezier(.2,.8,.2,1)' }} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
+        <Slide>
+          <div className="ob-art"><PairArt state={pair} /></div>
+          <div style={{ textAlign: 'center' }}>
+            <div className="eyebrow" style={{ marginBottom: 10 }}>Step 1 of 4</div>
+            <h1 className="h1" style={{ marginBottom: 10 }}>Pair your Shhh</h1>
+            <p className="body" style={{ marginBottom: 20 }}>Open the charging case next to your phone. Your earplugs connect over Bluetooth in a few seconds.</p>
+            {pair === 'idle' && <button type="button" className="btn btn-soft btn-lg" onClick={doPair}><Icon name="bt" size={20} />Pair earplugs</button>}
+            {pair === 'busy' && <div className="row gap2" style={{ justifyContent: 'center', minHeight: 58 }}><span className="typing"><i /><i /><i /></span><span className="body">Searching for Shhh…</span></div>}
+            {pair === 'done' && <div className="pill" style={{ minHeight: 40, padding: '0 18px', fontSize: 15 }}><Icon name="check" size={16} stroke={2.600} />Connected</div>}
+          </div>
+        </Slide>
+        <Slide>
+          <div style={{ flex: 1 }} />
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 10 }}>Step 2 of 4</div>
+            <h1 className="h1" style={{ marginBottom: 10 }}>Tell us what keeps you up</h1>
+            <p className="body" style={{ marginBottom: 22 }}>Pick all that apply. Shhh AI starts with these, then learns the real noises of your nights.</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+              {SOURCES.map(([n, ic]) => <button key={n} type="button" className={'chip' + (s.sources.includes(n) ? ' sel' : '')} aria-pressed={s.sources.includes(n)} onClick={() => toggleSrc(n)}><Icon name={s.sources.includes(n) ? 'check' : ic} size={17} />{n}</button>)}
+            </div>
+          </div>
+          <div style={{ flex: 1.2 }} />
+        </Slide>
+        <Slide>
+          <div className="ob-art"><div className="orb" style={{ width: 132, height: 132 }}><Icon name="sparkle" size={54} fill="currentColor" stroke={0.6} /></div></div>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 10 }}>Step 3 of 4</div>
+            <h1 className="h1" style={{ marginBottom: 10 }}>Meet Shhh AI</h1>
+            <p className="body" style={{ marginBottom: 16 }}>Shhh AI learns your nights: it recognises the noises around you, maps your sleep cycles and tunes your earplugs automatically. It gets smarter every night.</p>
+            <div className="feat"><span className="ico sm"><Icon name="shield" size={18} /></span><p className="small">Analysis runs on your device. Your audio is never recorded or uploaded.</p></div>
+          </div>
+        </Slide>
+        <Slide>
+          <div className="ob-art">
+            <div style={{ position: 'relative', width: 200, height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: 'radial-gradient(circle,rgba(139,127,224,.4),transparent 68%)', animation: 'pulse 4s ease-in-out infinite' }} />
+              <div style={{ animation: 'floaty 5s ease-in-out infinite', color: '#CFC8FF' }}><Icon name="moon" size={96} stroke={1.400} /></div>
+            </div>
+          </div>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 10 }}>Step 4 of 4</div>
+            <h1 className="h1" style={{ marginBottom: 10 }}>Always ready</h1>
+            <p className="body">Your earplugs work without the app — the app just makes them smarter.</p>
+          </div>
+        </Slide>
+      </div>
+      <div className="ob-foot">
+        <div className="dots" role="tablist" aria-label="Onboarding progress">{[0, 1, 2, 3].map((n) => <i key={n} className={n === i ? 'on' : ''} />)}</div>
+        <button type="button" className="btn btn-primary btn-lg btn-block" onClick={() => (last ? finish() : setI(i + 1))}>{last ? 'Start sleeping better' : 'Continue'}</button>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------ TONIGHT ------------------------------ */
+const lowLabel = (v) => (v >= 85 ? 'max cancellation' : v >= 60 ? 'strong cancellation' : 'light cancellation');
+const CardHead = ({ icon, title, right, ai }) => (
+  <div className="row between" style={{ marginBottom: 12, minHeight: 28 }}>
+    <div className="row gap2">{icon && <span className="ico sm"><Icon name={icon} size={17} /></span>}<h2 className="h3">{title}</h2></div>
+    {right || (ai && <AIBadge />)}
+  </div>
+);
+
+function Tonight() {
+  const { s, set, go, setUi, openSheet, toast } = useApp();
+  const prof = PROFILES.find((p) => p.id === s.profile) || PROFILES[0];
+  const name = s.name.trim() || 'there';
+  const today = new Date();
+  const dayName = DAYS[today.getDay()];
+  const forecast = `${dayName} night: higher street noise expected between 23:00 and 02:00. I've pre-set stronger low-frequency cancellation for you.`;
+  const essentials = [s.essentials.alarm && 'alarm on', s.essentials.calls && 'calls on', s.essentials.baby && 'baby cry on'].filter(Boolean);
+  const [pairing, setPairing] = useState(false);
+  const pairNow = () => { setPairing(true); setTimeout(() => { setPairing(false); set({ paired: true }); toast('Shhh earplugs connected', 'bt'); }, 2200); };
+  let i = 0;
+  const idx = () => ({ '--i': i++ });
+  return (
+    <div className="screen screen-enter">
+      <div className="row between rise" style={idx()}>
+        <Logo size={28} />
+        <button type="button" className="avatar" aria-label="Open profile" onClick={() => setUi({ profile: true })}>{(name[0] || 'S').toUpperCase()}</button>
+      </div>
+      <div className="rise" style={{ margin: '22px 0 20px', ...idx() }}>
+        <p className="eyebrow" style={{ marginBottom: 8 }}>{DAYS[today.getDay()]}, {today.getDate()} {MONTHS[today.getMonth()]}</p>
+        <h1 className="h1">{greeting()},<br />{name}</h1>
+      </div>
+      <div className="stack">
+        <div className="card-ai rise" style={idx()}>
+          <CardHead title="Tonight's forecast" ai />
+          <AIText id={'fc-' + dayName} text={forecast} />
+          <div className="row gap2" style={{ marginTop: 16 }}>
+            <button type="button" className={'btn btn-sm ' + (s.forecast === 'kept' ? 'btn-primary' : 'btn-soft')} style={{ flex: 1 }} onClick={() => { set({ forecast: 'kept' }); toast('Forecast profile kept for tonight'); }}>{s.forecast === 'kept' ? <><Icon name="check" size={16} stroke={2.500} />Kept</> : 'Keep'}</button>
+            <button type="button" className={'btn btn-sm ' + (s.forecast === 'adjusted' ? 'btn-primary' : 'btn-ghost')} style={{ flex: 1 }} onClick={() => openSheet('forecast')}>{s.forecast === 'adjusted' ? <><Icon name="check" size={16} stroke={2.500} />Adjusted</> : 'Adjust'}</button>
+          </div>
+        </div>
+
+        <div className="card rise" style={idx()}>
+          <CardHead icon="earbud" title="Your earplugs" right={s.paired ? <span className="pill"><span className="dot" style={{ width: 6, height: 6 }} />Connected</span> : <span className="pill grey">Not connected</span>} />
+          {s.paired ? (
+            <div className="row gap3">
+              {[['Left', 82], ['Right', 79], ['Case', 64]].map(([n, v]) => (
+                <div key={n} style={{ flex: 1 }}>
+                  <div className="mute">{n}</div>
+                  <div className="num title-c" style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-.02em' }}>{v}%</div>
+                  <div className="batt" role="img" aria-label={`${n} battery ${v} percent`}><i style={{ width: v + '%' }} /></div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="empty" style={{ padding: '6px 0 2px' }}>
+              <p className="small" style={{ marginBottom: 14 }}>Pair your earplugs to see battery levels and sync your profile.</p>
+              <button type="button" className="btn btn-soft btn-sm" onClick={pairNow} disabled={pairing}><Icon name="bt" size={16} />{pairing ? 'Searching…' : 'Pair earplugs'}</button>
+            </div>
+          )}
+        </div>
+
+        <div className="card rise" style={idx()}>
+          <CardHead icon="sliders" title="Active noise profile" right={s.adaptive ? <span className="pill lav">Adaptive AI: on</span> : <span className="pill grey">Adaptive AI: off</span>} />
+          <div className="row gap2" style={{ marginBottom: 6 }}><span className="h2" style={{ fontSize: 24 }}>{prof.name}</span>{prof.ai && <AIBadge />}</div>
+          <p className="small">Adaptive AI: {s.adaptive ? 'on' : 'off'}</p>
+          <p className="small" style={{ marginTop: 2 }}>Low frequencies: {lowLabel(s.eq.low)} · Essential sounds: {essentials.length ? essentials.join(', ') : 'alarm off'}</p>
+          <button type="button" className="btn btn-ghost btn-sm" style={{ marginTop: 14 }} onClick={() => openSheet('profiles')}>Change profile<Icon name="chevR" size={16} /></button>
+        </div>
+
+        <div className="card rise" style={idx()}>
+          <CardHead icon="alarm" title="Smart alarm" right={<button type="button" className="linkbtn" onClick={() => openSheet('alarm')} aria-label="Edit smart alarm"><Icon name="pen" size={15} />Edit</button>} />
+          {s.alarm.on ? (
+            <>
+              <div className="num title-c" style={{ fontSize: 30, fontWeight: 800, letterSpacing: '-.03em' }}>{fmtShort(toMin(s.alarm.from))} – {fmtShort(toMin(s.alarm.to))}</div>
+              <p className="small" style={{ marginTop: 4 }}>Shhh AI wakes you during light sleep</p>
+            </>
+          ) : <p className="small">Smart alarm is off. Turn it on to wake up gently during light sleep.</p>}
+        </div>
+      </div>
+
+      <div style={{ position: 'sticky', bottom: 'calc(var(--tab) + var(--sab))', margin: '10px -20px 0', padding: '26px 20px 14px', zIndex: 5, background: 'linear-gradient(0deg,rgba(10,14,31,.96) 55%,rgba(10,14,31,0))' }} className="rise">
+        <button type="button" className="btn btn-primary btn-lg btn-block" style={{ boxShadow: '0 18px 40px -12px rgba(139,127,224,.85), inset 0 1px 0 rgba(255,255,255,.25)' }} onClick={() => setUi({ session: { t0: Date.now() } })}><Icon name="moon" size={20} />Start sleep session</button>
+      </div>
+    </div>
+  );
+}
+
+/* --------------------------- SLEEP MODE --------------------------- */
+const DETECT = [
+  { k: 'traffic', l: 'Bus', r: 'cancelled' }, { k: 'traffic', l: 'Car horn', r: 'cancelled' }, { k: 'voices', l: 'Voices', r: 'reduced' },
+  { k: 'bass', l: 'Bass music', r: 'cancelled' }, { k: 'traffic', l: 'Motorbike', r: 'cancelled' }, { k: 'truck', l: 'Garbage truck', r: 'cancelled' },
+  { k: 'voices', l: 'Street chatter', r: 'reduced' }, { k: 'traffic', l: 'Tram', r: 'cancelled' }
+];
+function LiveWave({ boost }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const cv = ref.current; if (!cv) return undefined;
+    const ctx = cv.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2), W = cv.clientWidth, H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.scale(dpr, dpr);
+    let raf, e = 0;
+    const loop = (t) => {
+      const ts = t / 1000; e += (boost.current - e) * 0.06; boost.current *= 0.985;
+      ctx.clearRect(0, 0, W, H);
+      const mid = H / 2, amp = 12 + e * 22;
+      ctx.beginPath();
+      for (let x = 0; x <= W; x += 2) {
+        const p = x / W * Math.PI * 2;
+        const y = mid + (Math.sin(p * 3 - ts * 2.2) * 0.6 + Math.sin(p * 9 - ts * 4.300) * 0.45 + Math.sin(p * 23 - ts * 7.100) * 0.28 + Math.sin(p * 41 + ts * 5) * 0.12) * amp;
+        x ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+      }
+      ctx.strokeStyle = 'rgba(156,153,174,.5)'; ctx.lineWidth = 1.500; ctx.stroke();
+      ctx.beginPath();
+      for (let x = 0; x <= W; x += 3) { const y = mid + Math.sin(x / W * Math.PI * 6 - ts * 1.500) * (0.7 + e * 0.5); x ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+      ctx.shadowColor = 'rgba(139,127,224,.9)'; ctx.shadowBlur = 12; ctx.strokeStyle = '#A89EF0'; ctx.lineWidth = 2.400; ctx.stroke(); ctx.shadowBlur = 0;
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+  return <canvas ref={ref} style={{ width: '100%', height: 120, display: 'block' }} role="img" aria-label="Live noise wave being flattened by Shhh" />;
+}
+
+function SleepMode() {
+  const { s, ui, setUi } = useApp();
+  const [now, setNow] = useState(new Date()), [feed, setFeed] = useState([]), [count, setCount] = useState(0), [el, setEl] = useState(0);
+  const boost = useRef(0), k = useRef(0);
+  useEffect(() => {
+    const clock = setInterval(() => { setNow(new Date()); setEl(Math.floor((Date.now() - ui.session.t0) / 1000)); }, 1000);
+    const push = () => {
+      const d = DETECT[(k.current * 5 + 2) % DETECT.length]; k.current++;
+      boost.current = d.r === 'cancelled' ? 0.9 : 1.2;
+      setFeed((f) => [{ id: k.current, ...d, at: new Date() }, ...f].slice(0, 4));
+      if (d.r === 'cancelled') setCount((c) => c + 1);
+    };
+    const first = setTimeout(push, 1400), iv = setInterval(push, 3600);
+    return () => { clearInterval(clock); clearInterval(iv); clearTimeout(first); };
+  }, []);
+  const mm = pad(Math.floor(el / 60)), ss = pad(el % 60);
+  return (
+    <div className="sleepmode" role="dialog" aria-label="Sleep mode">
+      <div className="row between" style={{ width: '100%' }}>
+        <span className="pill lav"><span className="dot" style={{ width: 6, height: 6, background: '#A89EF0', boxShadow: '0 0 8px #A89EF0' }} />Shhh AI is listening</span>
+        <span className="mute num">Session {mm}:{ss}</span>
+      </div>
+      <div className="breath" aria-hidden="true"><i /><i /><span className="breath-label">Breathe</span></div>
+      <div className="clock" aria-label="Current time">{pad(now.getHours())}:{pad(now.getMinutes())}</div>
+      <p className="small" style={{ margin: '8px 0 14px' }}>Smart alarm · {fmtShort(toMin(s.alarm.from))}–{fmtShort(toMin(s.alarm.to))}</p>
+      <div style={{ width: '100%' }}><LiveWave boost={boost} /></div>
+      <div className="row" style={{ gap: 18, margin: '4px 0 12px', alignItems: 'baseline' }}>
+        <div style={{ textAlign: 'center' }}><div className="num title-c" style={{ fontSize: 34, fontWeight: 700, letterSpacing: '-.03em' }}>{count}</div><div className="mute">noises cancelled</div></div>
+      </div>
+      <div className="feed" aria-live="polite">
+        {feed.length === 0 && <p className="mute" style={{ textAlign: 'center', padding: 16 }}>All quiet. I'll tell you when I detect something.</p>}
+        {feed.map((f, i) => (
+          <div key={f.id} className="feed-item" style={{ opacity: 1 - i * 0.24 }}>
+            <Icon name="sparkle" size={14} fill="#A89EF0" stroke={0.5} style={{ color: '#A89EF0', flex: 'none' }} />
+            <span>Shhh AI detected: <b>{f.l.toLowerCase()}</b> · {f.r}</span>
+            <span className="t">{pad(f.at.getHours())}:{pad(f.at.getMinutes())}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ flex: 1 }} />
+      <button type="button" className="btn btn-ghost btn-lg btn-block" onClick={() => setUi({ phase: 'analysing' })}><Icon name="sun" size={20} />Wake up / End session</button>
+    </div>
+  );
+}
+
+function Analysing() {
+  const { endSession } = useApp();
+  const steps = ['Mapping sleep cycles', 'Classifying noises', 'Writing your report'];
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    const a = setTimeout(() => setN(1), 1000), b = setTimeout(() => setN(2), 2000), c = setTimeout(() => setN(3), 2900), d = setTimeout(endSession, 3200);
+    return () => { clearTimeout(a); clearTimeout(b); clearTimeout(c); clearTimeout(d); };
+  }, []);
+  return (
+    <div className="analysing" role="status" aria-live="polite">
+      <div className="orb"><Icon name="sparkle" size={46} fill="currentColor" stroke={0.6} /></div>
+      <h2 className="h1" style={{ fontSize: 26, margin: '30px 0 8px', textAlign: 'center' }}>Analysing your night…</h2>
+      <p className="body" style={{ marginBottom: 26, textAlign: 'center' }}>Everything is processed on your device.</p>
+      <div className="stack" style={{ gap: 14, alignItems: 'flex-start' }}>
+        {steps.map((t, i) => <div key={t} className={'step' + (n >= i ? ' on' : '') + (n > i ? ' done' : '')}><span className="sk">{n > i && <Icon name="check" size={14} stroke={3} />}</span>{t}</div>)}
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------ SLEEP ------------------------------ */
+function PageHead({ eyebrow, title, right }) {
+  return (
+    <div className="row between rise" style={{ marginBottom: 20, alignItems: 'flex-end' }}>
+      <div><div className="eyebrow" style={{ marginBottom: 8 }}>{eyebrow}</div><h1 className="h1">{title}</h1></div>
+      {right}
+    </div>
+  );
+}
+
+function SleepTab() {
+  const { nights, ui, setUi } = useApp();
+  const latest = nights.length - 1;
+  const idx = ui.nightIdx == null ? latest : clamp(ui.nightIdx, 0, latest);
+  const n = nights[idx];
+  const prev = nights.slice(Math.max(0, idx - 14), idx);
+  const summary = nightSummary(n, prev);
+  const [mk, setMk] = useState(null), [range, setRange] = useState('week'), [tsel, setTsel] = useState(null);
+  const loading = useLoading(700, n.id), loadingT = useLoading(700, range);
+  useEffect(() => { setMk(null); }, [n.id]);
+  useEffect(() => { setTsel(null); }, [range]);
+  const trend = useMemo(() => (range === 'week' ? nights.slice(-7) : nights.slice(-30)).map((x) => {
+    const d = parseISO(x.date);
+    return { id: x.id, score: x.score, legacy: x.legacy, label: range === 'week' ? DAYS[d.getDay()].slice(0, 3) : `${d.getDate()}/${d.getMonth() + 1}`, full: `${DAYS[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]}` };
+  }), [nights, range]);
+  const adaptive = nights.filter((x) => !x.legacy), legacy = nights.filter((x) => x.legacy);
+  const aA = mean(adaptive.map((x) => x.score)), aL = mean(legacy.map((x) => x.score));
+  const pct = aL ? Math.round((aA / aL - 1) * 100) : 0;
+  const trendText = pct > 0 ? `Your score improved ${pct}% since you started using Adaptive AI.` : 'Your score has held steady since you started using Adaptive AI.';
+  const tsl = tsel == null ? trend.length - 1 : tsel;
+  const wake = n.bed + n.total, m = mk != null ? n.markers[mk] : null;
+  return (
+    <div className="screen screen-enter">
+      <PageHead eyebrow="Shhh AI sleep analysis" title="Sleep" />
+      <div className="row between rise" style={{ '--i': 1, marginBottom: 14 }}>
+        <button type="button" className="iconbtn" aria-label="Previous night" disabled={idx === 0} style={{ opacity: idx === 0 ? 0.35 : 1 }} onClick={() => setUi({ nightIdx: idx - 1 })}><Icon name="chevL" size={20} /></button>
+        <div style={{ textAlign: 'center' }}>
+          <div className="h3">{nightLabel(n)}</div>
+          <div className="mute num">{fmtClock(n.bed)} → {fmtClock(wake)}</div>
+        </div>
+        <button type="button" className="iconbtn" aria-label="Next night" disabled={idx === latest} style={{ opacity: idx === latest ? 0.35 : 1 }} onClick={() => setUi({ nightIdx: idx + 1 })}><Icon name="chevR" size={20} /></button>
+      </div>
+      <div className="stack">
+        <div className="card rise" style={{ '--i': 2 }}>
+          <div className="row gap4">
+            <Gauge value={n.score} />
+            <div className="stack" style={{ gap: 14, flex: 1 }}>
+              {[['Time asleep', fmtDur(n.asleep)], ['Fell asleep in', `${n.latency} min`], ['Woke up', plural(n.awakenings, 'time')]].map(([l, v]) => (
+                <div key={l}><div className="mute">{l}</div><div className="num title-c" style={{ fontSize: 19, fontWeight: 700, letterSpacing: '-.02em' }}>{v}</div></div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="card-ai rise" style={{ '--i': 3 }}>
+          <CardHead title="Night summary" ai />
+          <AIText key={n.id} id={'sum-' + n.id} text={summary} />
+        </div>
+
+        <div className="card rise" style={{ '--i': 4 }}>
+          <CardHead icon="steps" title="Sleep stages" />
+          {loading ? <Skel h={178} /> : <Hypnogram key={n.id} night={n} selected={mk} onSelect={setMk} />}
+          <div style={{ marginTop: 12 }}>
+            {m ? (
+              <div key={mk} className="card-ai pad-sm" style={{ padding: 14, animation: 'rise .4s both' }}>
+                <div className="row between" style={{ marginBottom: 6 }}><span className="h3">{fmtClock(n.bed + m.t)} · {m.title}</span><AIBadge /></div>
+                <AIText id={`mk-${n.id}-${mk}`} text={m.text} className="small" delay={350} />
+              </div>
+            ) : (
+              <p className="mute row gap2"><Icon name="sparkle" size={13} fill="#A89EF0" stroke={0.5} style={{ color: '#A89EF0' }} />Tap a sparkle marker to see what Shhh AI found.</p>
+            )}
+          </div>
+        </div>
+
+        <div className="card rise" style={{ '--i': 5 }}>
+          <CardHead icon="clock" title="Stage breakdown" />
+          <StageBars night={n} />
+        </div>
+
+        <div className="card rise" style={{ '--i': 6 }}>
+          <div className="row between" style={{ marginBottom: 14 }}>
+            <h2 className="h3">Sleep score trend</h2>
+            <div style={{ width: 150 }}><Seg label="Trend range" value={range} onChange={setRange} options={[{ v: 'week', l: 'Week' }, { v: 'month', l: 'Month' }]} /></div>
+          </div>
+          {loadingT ? <Skel h={168} /> : <TrendChart key={range} data={trend} selected={tsel} onSelect={setTsel} />}
+          <p className="mute" style={{ marginTop: 8 }}>{trend[tsl].full} · score {trend[tsl].score}{range === 'month' && <span> · lighter bars are before Adaptive AI</span>}</p>
+          <div className="hr" />
+          <div className="row gap2" style={{ marginBottom: 8 }}><Icon name="trend" size={16} style={{ color: 'var(--accent2)' }} /><AIBadge /></div>
+          <AIText id={'trend-' + pct + '-' + adaptive.length} text={trendText} className="h3" delay={400} style={{ lineHeight: 1.4 }} />
+          <p className="small" style={{ marginTop: 4 }}>Average {Math.round(aA)} over {plural(adaptive.length, 'night')}, versus {Math.round(aL)} before.</p>
+        </div>
+
+        <p className="mute rise" style={{ '--i': 7, padding: '2px 6px', textAlign: 'center' }}>Sleep stages are estimated by Shhh AI from in-ear motion and heart rate sensors. Shhh is not a medical device.</p>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------ NOISE ------------------------------ */
+function NoiseTab() {
+  const { nights, s, go, set } = useApp();
+  const [f, setF] = useState('last'), [sel, setSel] = useState(null);
+  const last = nights[nights.length - 1];
+  const list = useMemo(() => (f === 'last' ? [last] : nights.slice(f === '7' ? -7 : -30)), [nights, f]);
+  const agg = useMemo(() => aggregate(list), [list]);
+  const loading = useLoading(700, f);
+  useEffect(() => { setSel(null); }, [f]);
+  const events = list.flatMap((x) => x.events);
+  const cancelled = events.filter((e) => e.pct >= 80).length;
+  const wakes = events.filter((e) => e.woke).length;
+  const buckets = useMemo(() => {
+    const hrs = [22, 23, 0, 1, 2, 3, 4, 5, 6, 7];
+    const out = hrs.map((h) => ({ h, label: `${pad(h)}:00–${pad((h + 1) % 24)}:00`, short: String(h), cancelled: 0, partly: 0, total: 0, cats: {} }));
+    list.forEach((x) => x.events.forEach((e) => {
+      const h = Math.floor(wrapMin(x.bed + e.t) / 60), b = out.find((o) => o.h === h);
+      if (!b) return;
+      b.total++; if (e.pct >= 80) b.cancelled++; else b.partly++;
+      b.cats[e.cat] = (b.cats[e.cat] || 0) + 1;
+    }));
+    return out;
+  }, [list]);
+  const adaptiveCount = nights.filter((x) => !x.legacy).length;
+  const ev = f === 'last' && sel != null ? last.events[sel] : null;
+  const bk = f !== 'last' && sel != null ? buckets[sel] : null;
+  const topCat = bk && Object.entries(bk.cats).sort((a, b) => b[1] - a[1])[0];
+  const insight = `Pattern found over ${adaptiveCount} nights: voices between 1 and 3 a.m. on Fridays and Saturdays are your main sleep disruptor. Mid frequencies are harder to cancel than low ones.`;
+  const insight2 = s.recApplied ? ' Since you applied my recommendation, mid-frequency reduction is boosted between 1 and 3 a.m.' : '';
+  return (
+    <div className="screen screen-enter">
+      <PageHead eyebrow="Shhh AI noise recognition" title="Noise" />
+      <div className="rise" style={{ '--i': 1, marginBottom: 16 }}>
+        <div className="row gap2" style={{ marginBottom: 8 }}><AIBadge /></div>
+        <p className="body">Shhh AI recognises and classifies every noise of your night.</p>
+      </div>
+      <div className="rise" style={{ '--i': 2, marginBottom: 14 }}><Seg label="Noise period" value={f} onChange={setF} options={[{ v: 'last', l: 'Last night' }, { v: '7', l: '7 nights' }, { v: '30', l: '30 nights' }]} /></div>
+      <div className="stack">
+        <div className="card rise" style={{ '--i': 3 }}>
+          <div className="row gap4" style={{ marginBottom: 14 }}>
+            {[[events.length, 'noises detected'], [events.length ? Math.round((cancelled / events.length) * 100) + '%' : '–', 'cancelled'], [wakes, wakes === 1 ? 'awakening' : 'awakenings']].map(([v, l]) => (
+              <div key={l} style={{ flex: 1 }}><div className="num title-c" style={{ fontSize: 24, fontWeight: 800, letterSpacing: '-.03em' }}>{v}</div><div className="mute">{l}</div></div>
+            ))}
+          </div>
+          <h2 className="h3" style={{ marginBottom: 6 }}>{f === 'last' ? 'Night noise timeline' : 'Noise events by hour'}</h2>
+          <div className="row gap3 mute" style={{ marginBottom: 12, whiteSpace: 'nowrap' }}><span className="row gap2"><i style={{ width: 8, height: 8, borderRadius: 4, background: '#A89EF0' }} />Cancelled</span><span className="row gap2"><i style={{ width: 8, height: 8, borderRadius: 4, background: '#8E8AA6' }} />Partly heard</span>{f === 'last' && <span className="row gap2"><i style={{ width: 14, height: 2, background: '#A89EF0' }} />What you heard</span>}</div>
+          {loading ? <Skel h={f === 'last' ? 178 : 150} /> : f === 'last' ? <NoiseTimeline key={last.id} night={last} selected={sel} onSelect={setSel} /> : <HourBars key={f} buckets={buckets} selected={sel} onSelect={setSel} />}
+          <div style={{ marginTop: 12, minHeight: 58 }}>
+            {ev && (
+              <div key={sel} style={{ animation: 'rise .35s both' }}>
+                <div className="row gap3"><span className="ico sm"><Icon name={CATS[ev.cat].icon} size={17} /></span>
+                  <div><div className="h3">{ev.label} — {ev.conf}% confidence — {ev.db} dB — {verb(ev.pct)}</div>
+                    <p className="small">{fmtClock(last.bed + ev.t)} · {CATS[ev.cat].band}{ev.woke ? ` · woke you for ${ev.wakeDur} min` : ''}</p></div></div>
+              </div>
+            )}
+            {bk && (
+              <div key={sel} style={{ animation: 'rise .35s both' }}>
+                <div className="h3">{bk.label} · {plural(bk.total, 'event')}</div>
+                <p className="small">{bk.total ? `${bk.cancelled} cancelled, ${bk.partly} partly heard. Most common: ${CATS[topCat[0]].name.toLowerCase()} (${topCat[1]}).` : 'No noise events in this hour.'}</p>
+              </div>
+            )}
+            {!ev && !bk && <p className="mute row gap2"><Icon name="sparkle" size={13} fill="#A89EF0" stroke={0.5} style={{ color: '#A89EF0' }} />{f === 'last' ? 'Tap a marker to see how Shhh AI classified the noise. The lavender line is what you actually heard.' : 'Tap a bar to see what happened that hour.'}</p>}
+          </div>
+        </div>
+
+        <div className="rise" style={{ '--i': 4 }}>
+          <SectionHead eyebrow="Ranked by frequency" title="Top disruptors" />
+          <div className="stack" style={{ gap: 10 }}>
+            {agg.length === 0 && <div className="card empty"><p className="small">No noises detected in this period. Quiet nights!</p></div>}
+            {agg.map((o, i) => (
+              <div key={o.cat} className="card pad-sm" style={{ animation: `rise .5s ${i * 70}ms both` }}>
+                <div className="row gap3">
+                  <span className="ico"><Icon name={CATS[o.cat].icon} size={20} /></span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div className="row between" style={{ gap: 8 }}><span className="h3">{i + 1}. {CATS[o.cat].name}</span><span className={'pill ' + (o.pct >= 80 ? 'lav' : 'warn')} style={{ flex: 'none' }}>{o.pct}% {verb(o.pct)}</span></div>
+                    <p className="small">{o.count} events · {CATS[o.cat].band}</p>
+                  </div>
+                </div>
+                <div className="meter" style={{ margin: '12px 0 0' }}><i style={{ width: o.pct + '%', background: o.pct >= 80 ? undefined : 'linear-gradient(90deg,#B8905A,#E8B77A)' }} /></div>
+                {o.wakes.length > 0 && <p className="small row gap2" style={{ marginTop: 10, color: 'var(--warn)' }}><Icon name="alert" size={14} />Caused {plural(o.wakes.length, 'awakening')}{o.wakes.length === 1 ? ` at ${fmtShort(o.wakes[0])}` : ''}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="card-ai rise" style={{ '--i': 5 }}>
+          <CardHead title="AI insight" ai />
+          <AIText id={'ins-' + adaptiveCount + (s.recApplied ? 'a' : '')} text={insight + insight2} />
+          <button type="button" className={'btn btn-block ' + (s.recApplied ? 'btn-ghost' : 'btn-primary')} style={{ marginTop: 16 }} onClick={() => { if (s.recDismissed) set({ recDismissed: false }); go('earplugs', { highlight: true }); }}>
+            {s.recApplied ? <><Icon name="check" size={18} stroke={2.500} />View in Earplugs</> : <><Icon name="sparkle" size={17} fill="currentColor" stroke={0.5} />Let AI optimize my earplugs</>}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------ COACH ------------------------------ */
+const SUGGESTIONS = ['Why did I wake up last night?', 'How can I get more deep sleep?', 'Which noise bothers me most?', 'Adjust my earplugs for this weekend'];
+function Msg({ m, onAction, scroll }) {
+  const fresh = useRef(!revealed.has(m.id)).current;
+  const delay = fresh ? m.text.length * 7.500 + 250 : 0;
+  if (m.role === 'user') return <div className="bubble me">{m.text}</div>;
+  return (
+    <div className="stack" style={{ gap: 8, alignItems: 'flex-start' }}>
+      <div className="bubble ai"><AIText id={m.id} text={m.text} shimmer={false} className="" onTick={scroll} /></div>
+      {m.chip && <span className="pill lav" style={{ minHeight: 32, padding: '0 14px', fontSize: 13, animation: `rise .5s ${delay}ms both` }}><Icon name="check" size={14} stroke={2.600} />{m.chip}</span>}
+      {m.actions && <div className="row gap2" style={{ flexWrap: 'wrap', animation: `rise .5s ${delay}ms both` }}>{m.actions.map((a) => <button key={a.label} type="button" className="chip chip-ai" onClick={() => onAction(a)}><Icon name="sparkle" size={14} fill="currentColor" stroke={0.5} />{a.label}</button>)}</div>}
+    </div>
+  );
+}
+
+function CoachTab() {
+  const { s, set, nights, go, applyProfile, toast } = useApp();
+  const last = nights[nights.length - 1], name = s.name.trim() || 'there';
+  const adaptive = useMemo(() => nights.filter((x) => !x.legacy), [nights]);
+  const top = useMemo(() => aggregate(adaptive), [adaptive]);
+  const [input, setInput] = useState(''), [busy, setBusy] = useState(false);
+  const box = useRef(null);
+  const scroll = useCallback(() => { const b = box.current; if (b) b.scrollTop = b.scrollHeight; }, []);
+  useEffect(() => { scroll(); }, [s.chat.length, busy]);
+  const recent = nights.slice(-7);
+  const ctx = { name, last, top, nights: adaptive.length, sources: s.sources, alarm: s.alarm, goal: s.goal, avgDeep: mean(adaptive.map((x) => x.deep)), avg7: mean(recent.map((x) => x.asleep)), avgLat: mean(recent.map((x) => x.latency)), voiceWeekend: adaptive.flatMap((x) => x.events).filter((e) => e.cat === 'voices' && e.t >= 60 && e.t <= 220).length };
+  const opening = `Hi ${name}. Last night you slept ${fmtDur(last.asleep)} with a score of ${last.score}. Want to know what woke you up, or how to fall asleep faster?`;
+  const send = (text) => {
+    const t = text.trim();
+    if (!t || busy) return;
+    const um = { id: 'u' + Date.now(), role: 'user', text: t };
+    revealed.add(um.id);
+    set((p) => ({ chat: [...p.chat, um] }));
+    setInput(''); setBusy(true);
+    setTimeout(() => {
+      const r = coachReply(t, ctx);
+      if (r.apply) applyProfile(r.apply);
+      set((p) => ({ chat: [...p.chat, { id: 'a' + Date.now(), role: 'ai', text: r.text, chip: r.chip, actions: r.actions }] }));
+      setBusy(false);
+    }, 950 + Math.random() * 600);
+  };
+  const act = (a) => {
+    if (a.do === 'rec') { if (s.recDismissed) set({ recDismissed: false }); go('earplugs', { highlight: true }); }
+    else if (a.do === 'noise') go('noise');
+    else if (a.do.startsWith('profile:')) {
+      const id = a.do.split(':')[1], p = PROFILES.find((x) => x.id === id);
+      applyProfile(id); toast(`${p.name} applied — synced to your earplugs`);
+      set((q) => ({ chat: [...q.chat, { id: 'a' + Date.now(), role: 'ai', text: `Done. I'll compare tonight's results with your previous nights and tell you if it helps.`, chip: `${p.name} profile applied ✓` }] }));
+    }
+  };
+  return (
+    <div className="screen screen-enter" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+      <div className="row between" style={{ padding: 'calc(var(--sat) + 14px) 20px 14px', borderBottom: '1px solid var(--line)', background: 'rgba(10,14,31,.6)' }}>
+        <div className="row gap3">
+          <div className="orb" style={{ width: 42, height: 42 }} aria-hidden="true"><Icon name="sparkle" size={18} fill="currentColor" stroke={0.5} /></div>
+          <div><div className="h3">Shhh AI · Sleep coach</div><div className="row gap2" style={{ marginTop: 3 }}><AIBadge /><span className="mute">Knows your last {adaptive.length} nights</span></div></div>
+        </div>
+        {s.chat.length > 0 && <button type="button" className="iconbtn" aria-label="Clear conversation" onClick={() => { set({ chat: [] }); toast('Conversation cleared', 'trash'); }}><Icon name="trash" size={18} /></button>}
+      </div>
+      <div ref={box} className="stack" style={{ flex: 1, overflowY: 'auto', padding: '18px 20px', gap: 14, scrollbarWidth: 'none' }}>
+        <Msg key={'open' + last.id} m={{ id: 'open-' + last.id + name, role: 'ai', text: opening }} onAction={act} scroll={scroll} />
+        {s.chat.map((m) => <Msg key={m.id} m={m} onAction={act} scroll={scroll} />)}
+        {busy && <div className="bubble ai" style={{ alignSelf: 'flex-start' }} aria-label="Shhh AI is typing"><span className="typing"><i /><i /><i /></span></div>}
+      </div>
+      <div style={{ padding: '10px 20px calc(var(--tab) + var(--sab) + 6px)', borderTop: '1px solid var(--line)', background: 'rgba(10,14,31,.85)' }}>
+        <div className="hscroll" style={{ marginBottom: 10 }}>{SUGGESTIONS.map((q) => <button key={q} type="button" className="chip" disabled={busy} style={{ opacity: busy ? 0.5 : 1 }} onClick={() => send(q)}>{q}</button>)}</div>
+        <form className="row gap2" onSubmit={(e) => { e.preventDefault(); send(input); }}>
+          <input className="field" style={{ borderRadius: 24, flex: 1 }} value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask Shhh AI about your sleep" aria-label="Message to Shhh AI" maxLength={200} />
+          <button type="submit" className="iconbtn" aria-label="Send message" disabled={!input.trim() || busy} style={{ background: input.trim() && !busy ? 'var(--accent)' : undefined, opacity: input.trim() && !busy ? 1 : 0.5, width: 48, height: 48 }}><Icon name="send" size={19} /></button>
+        </form>
+        <p className="mute" style={{ textAlign: 'center', marginTop: 8, fontSize: 11 }}>Shhh AI gives wellness tips, not medical advice.</p>
+      </div>
+    </div>
+  );
+}
+
+/* ----------------------------- EARPLUGS ----------------------------- */
+const INTENSITY = ['Light', 'Balanced', 'Maximum'];
+function EarplugsTab() {
+  const { s, set, ui, setUi, applyProfile, setEqManual, applyRec, toast, openSheet, nights } = useApp();
+  const adaptiveCount = nights.filter((x) => !x.legacy).length;
+  const prof = PROFILES.find((p) => p.id === s.profile) || PROFILES[0];
+  const recRef = useRef(null), [tuning, setTuning] = useState(false), hl = ui.highlight;
+  useEffect(() => {
+    if (!hl) return undefined;
+    const a = setTimeout(() => { if (recRef.current) recRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 450);
+    const b = setTimeout(() => setUi({ highlight: false }), 5000);
+    return () => { clearTimeout(a); clearTimeout(b); };
+  }, [hl]);
+  const aiTune = () => {
+    if (tuning) return;
+    setTuning(true);
+    const from = { ...s.eq }, t0 = performance.now();
+    const step = (t) => {
+      const p = clamp((t - t0) / 1000, 0, 1), e = 1 - Math.pow(1 - p, 3);
+      set({ eq: { low: Math.round(from.low + (AI_EQ.low - from.low) * e), mid: Math.round(from.mid + (AI_EQ.mid - from.mid) * e), high: Math.round(from.high + (AI_EQ.high - from.high) * e) } });
+      if (p < 1) requestAnimationFrame(step); else { setTuning(false); toast('Equalizer tuned by Shhh AI'); }
+    };
+    requestAnimationFrame(step);
+  };
+  const undoRec = () => { set((p) => ({ recApplied: false, eq: { ...p.eq, mid: prof.eq.mid }, sched: { ...p.sched, on: false } })); toast('Recommendation undone', 'refresh'); };
+  const ess = [
+    ['alarm', 'alarm', 'Alarm', 'Always hear your alarm clock'], ['calls', 'phone', 'Phone calls from favorites', 'Let calls from favorites through'],
+    ['baby', 'baby', 'Baby crying', 'On-device AI detection'], ['smoke', 'alert', 'Smoke alarm', 'Always on for your safety']
+  ];
+  let i = 0;
+  const ix = () => ({ '--i': i++ });
+  return (
+    <div className="screen screen-enter">
+      <PageHead eyebrow="Shhh AI-tuned settings" title="Earplugs" />
+      <div className="stack">
+        <div className="card-ai rise" style={ix()}>
+          <div className="row between" style={{ gap: 12 }}>
+            <div style={{ flex: 1 }}><div className="row gap2" style={{ marginBottom: 6 }}><h2 className="h2">Adaptive AI</h2><AIBadge /></div>
+              <p className="small">{s.adaptive ? 'Shhh AI automatically adjusts cancellation all night based on the noises it detects.' : 'Adaptive AI is off. Your earplugs use the settings below all night.'}</p></div>
+            <Toggle on={s.adaptive} onChange={(v) => { set({ adaptive: v }); toast(v ? 'Adaptive AI is on' : 'Adaptive AI is off', 'sparkle'); }} label="Adaptive AI" />
+          </div>
+          {s.adaptive && <div className="row gap2" style={{ marginTop: 14 }}><span className="dot" style={{ background: '#A89EF0', boxShadow: '0 0 10px #A89EF0', animation: 'pulse 2s ease-in-out infinite' }} /><span className="small title-c">AI is learning your nights · {adaptiveCount} nights analysed</span></div>}
+        </div>
+
+        <div ref={recRef} className="rise" style={ix()}>
+          {!s.recApplied && !s.recDismissed && (
+            <div className={'card-ai' + (hl ? ' hl' : '')}>
+              <CardHead title="Recommendation" ai />
+              <AIText id="rec-mid" text="Recommended by Shhh AI: boost mid-frequency reduction between 1 and 3 a.m." className="h3" delay={500} style={{ lineHeight: 1.45 }} />
+              <p className="small" style={{ marginTop: 6 }}>Voices on Fridays and Saturdays are your main disruptor.</p>
+              <div className="row gap2" style={{ marginTop: 16 }}>
+                <button type="button" className="btn btn-primary btn-sm" style={{ flex: 1 }} onClick={() => { applyRec(); toast('Profile updated — synced to your earplugs'); }}>Apply</button>
+                <button type="button" className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={() => { set({ recDismissed: true }); toast('Recommendation dismissed', 'x'); }}>Dismiss</button>
+              </div>
+            </div>
+          )}
+          {s.recApplied && (
+            <div className={'card row gap3' + (hl ? ' hl' : '')} style={{ borderColor: 'rgba(123,216,180,.3)' }}>
+              <span className="ico sm" style={{ background: 'rgba(123,216,180,.15)', color: 'var(--ok)' }}><Icon name="check" size={18} stroke={2.500} /></span>
+              <div style={{ flex: 1 }}><div className="h3">AI recommendation applied</div><p className="small">Mid-frequency reduction boosted from 1:00 to 3:00.</p></div>
+              <button type="button" className="linkbtn" onClick={undoRec}>Undo</button>
+            </div>
+          )}
+          {!s.recApplied && s.recDismissed && (
+            <div className="card pad-sm row between"><span className="small">Recommendation dismissed</span><button type="button" className="linkbtn" onClick={() => set({ recDismissed: false })}>Show again</button></div>
+          )}
+        </div>
+
+        <div className="rise" style={ix()}>
+          <SectionHead eyebrow="Noise profiles" title="Choose a profile" />
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+            {PROFILES.map((p) => {
+              const on = s.profile === p.id;
+              return (
+                <button key={p.id} type="button" className="card pad-sm press" aria-pressed={on} style={{ minHeight: 118, display: 'flex', flexDirection: 'column', gap: 8, borderColor: on ? 'rgba(168,158,240,.75)' : undefined, background: on ? 'rgba(139,127,224,.14)' : undefined, boxShadow: on ? '0 10px 30px -14px rgba(139,127,224,.7)' : undefined }}
+                  onClick={() => { applyProfile(p.id); toast(`${p.name} selected — synced to your earplugs`); }}>
+                  <div className="row between"><span className="ico sm"><Icon name={p.icon} size={17} fill={p.id === 'weekend' ? 'currentColor' : 'none'} stroke={p.id === 'weekend' ? 0.5 : 1.800} /></span>{on ? <span style={{ color: 'var(--accent2)' }}><Icon name="check" size={18} stroke={2.600} /></span> : p.ai ? <AIBadge /> : null}</div>
+                  <div><div className="h3">{p.name}</div><p className="mute" style={{ marginTop: 2 }}>{p.desc}</p></div>
+                  {on && p.ai && <AIBadge />}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="card rise" style={ix()}>
+          <div className="row between" style={{ marginBottom: 6 }}><h2 className="h3">Cancellation intensity</h2>{s.adaptive && <span className="ai-badge"><Icon name="sparkle" size={12} fill="currentColor" stroke={0.5} />Managed by AI</span>}</div>
+          <input type="range" min="0" max="2" step="1" value={s.intensity} disabled={s.adaptive} aria-label="Noise cancellation intensity" style={{ '--p': s.intensity * 50 + '%' }} onChange={(e) => set({ intensity: +e.target.value })} />
+          <div className="row between">{INTENSITY.map((l, k) => <span key={l} className="small" style={{ color: s.intensity === k ? 'var(--title)' : undefined, fontWeight: s.intensity === k ? 600 : 400 }}>{l}</span>)}</div>
+        </div>
+
+        <div className="card rise" style={ix()}>
+          <div className="row between" style={{ marginBottom: 14 }}><h2 className="h3">3-band equalizer</h2><button type="button" className="btn btn-soft btn-sm" onClick={aiTune} disabled={tuning} style={{ minHeight: 44 }}><Icon name="sparkle" size={15} fill="currentColor" stroke={0.5} />{tuning ? 'Tuning…' : 'Let AI set it'}</button></div>
+          <div className="row" style={{ justifyContent: 'space-around', alignItems: 'flex-start' }}>
+            {[['low', 'Low', '20–250 Hz'], ['mid', 'Mid', '250–2,000 Hz'], ['high', 'High', '2,000+ Hz']].map(([k, n, r]) => (
+              <div key={k} style={{ textAlign: 'center' }}>
+                <VSlider value={s.eq[k]} onChange={(v) => setEqManual({ [k]: v })} label={`${n} band cancellation, ${r}`} disabled={tuning} />
+                <div className="num title-c" style={{ fontSize: 18, fontWeight: 700 }}>{s.eq[k]}%</div>
+                <div className="h3" style={{ fontSize: 14 }}>{n}</div><div className="mute">{r}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 16, padding: '10px 12px', borderRadius: 16, background: 'rgba(0,0,0,.2)', border: '1px solid var(--line)' }}>
+            <EqPreview eq={s.eq} />
+            <div className="row between mute"><span>Noise in</span><span style={{ color: 'var(--accent2)' }}>What you hear</span></div>
+          </div>
+        </div>
+
+        <div className="card rise" style={ix()}>
+          <div className="row between" style={{ gap: 12 }}>
+            <div style={{ flex: 1 }}><h2 className="h3" style={{ marginBottom: 4 }}>Scheduled mode</h2><p className="small title-c">Stronger cancellation from {fmtShort(toMin(s.sched.from))} to {fmtShort(toMin(s.sched.to))}</p></div>
+            <Toggle on={s.sched.on} onChange={(v) => set((p) => ({ sched: { ...p.sched, on: v } }))} label="Scheduled stronger cancellation" />
+          </div>
+          <div style={{ marginTop: 10 }}><AIBadge label="Suggested by Shhh AI" /></div>
+          {s.sched.on && (
+            <div className="row gap3" style={{ marginTop: 14, animation: 'rise .35s both' }}>
+              <label style={{ flex: 1 }}><span className="mute" style={{ display: 'block', marginBottom: 6 }}>From</span><input type="time" className="timeinp" style={{ width: '100%' }} value={s.sched.from} onChange={(e) => e.target.value && set((p) => ({ sched: { ...p.sched, from: e.target.value } }))} aria-label="Schedule start time" /></label>
+              <label style={{ flex: 1 }}><span className="mute" style={{ display: 'block', marginBottom: 6 }}>To</span><input type="time" className="timeinp" style={{ width: '100%' }} value={s.sched.to} onChange={(e) => e.target.value && set((p) => ({ sched: { ...p.sched, to: e.target.value } }))} aria-label="Schedule end time" /></label>
+            </div>
+          )}
+        </div>
+
+        <div className="card rise" style={ix()}>
+          <h2 className="h3" style={{ marginBottom: 6 }}>Essential sounds</h2>
+          <p className="small" style={{ marginBottom: 6 }}>Sounds that always get through, even at maximum cancellation.</p>
+          {ess.map(([k, ic, t, d]) => (
+            <div key={k} className="setrow">
+              <span className="ico sm mute"><Icon name={ic} size={17} /></span>
+              <div className="grow"><div className="h3" style={{ fontSize: 15 }}>{t}</div><p className="mute">{d}</p></div>
+              {k === 'smoke' && <Icon name="lock" size={15} style={{ color: 'var(--mute)' }} />}
+              <Toggle on={s.essentials[k]} disabled={k === 'smoke'} label={t} onChange={(v) => set((p) => ({ essentials: { ...p.essentials, [k]: v } }))} />
+            </div>
+          ))}
+        </div>
+
+        <div className="card rise" style={ix()}>
+          <h2 className="h3" style={{ marginBottom: 6 }}>Device</h2>
+          <div className="setrow"><span className="ico sm mute"><Icon name="cpu" size={17} /></span><div className="grow"><div className="h3" style={{ fontSize: 15 }}>Firmware 2.4.1</div></div><button type="button" className="pill" style={{ minHeight: 32 }} onClick={() => toast("Your earplugs are up to date")}><Icon name="check" size={13} stroke={2.600} />Up to date</button></div>
+          <button type="button" className="setrow press" style={{ width: '100%' }} onClick={() => openSheet('find')}><span className="ico sm mute"><Icon name="target" size={17} /></span><div className="grow"><div className="h3" style={{ fontSize: 15 }}>Find my earplugs</div><p className="mute">Play a chime from either earplug</p></div><Icon name="chevR" size={18} style={{ color: 'var(--mute)' }} /></button>
+          <button type="button" className="setrow press" style={{ width: '100%' }} onClick={() => { set({ paired: !s.paired }); toast(s.paired ? 'Earplugs forgotten' : 'Shhh earplugs connected', 'bt'); }}><span className="ico sm mute"><Icon name="bt" size={17} /></span><div className="grow"><div className="h3" style={{ fontSize: 15 }}>{s.paired ? 'Forget earplugs' : 'Reconnect earplugs'}</div><p className="mute">{s.paired ? 'Unpair from this phone' : 'Pair your Shhh again'}</p></div><Icon name="chevR" size={18} style={{ color: 'var(--mute)' }} /></button>
+          <button type="button" className="setrow press" style={{ width: '100%' }} onClick={() => openSheet('fit')}><span className="ico sm mute"><Icon name="ear" size={17} /></span><div className="grow"><div className="h3" style={{ fontSize: 15 }}>Ear tip fit test</div><p className="mute">{s.fit ? `Last test: left ${s.fit.l}% · right ${s.fit.r}%` : 'Check the seal of each tip'}</p></div><Icon name="chevR" size={18} style={{ color: 'var(--mute)' }} /></button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------ PROFILE ------------------------------ */
+function ProfileScreen() {
+  const { s, set, setUi, openSheet } = useApp();
+  const [closing, setClosing] = useState(false);
+  const close = () => { setClosing(true); setTimeout(() => setUi({ profile: false }), 280); };
+  const name = s.name.trim() || 'there';
+  return (
+    <div className={'overlay ' + (closing ? 'slide-out' : 'slide-in')} style={{ background: 'var(--bg)' }} role="dialog" aria-label="Profile">
+      <div className="screen">
+        <div className="row gap3" style={{ marginBottom: 20 }}>
+          <button type="button" className="iconbtn" aria-label="Back" onClick={close}><Icon name="chevL" size={20} /></button>
+          <h1 className="h1" style={{ fontSize: 26 }}>Profile</h1>
+        </div>
+        <div className="stack">
+          <div className="card row gap4">
+            <div className="avatar" style={{ width: 64, height: 64, fontSize: 26 }} aria-hidden="true">{(name[0] || 'S').toUpperCase()}</div>
+            <label style={{ flex: 1 }}><span className="mute" style={{ display: 'block', marginBottom: 6 }}>Your name</span><input className="field" value={s.name} maxLength={24} onChange={(e) => set({ name: e.target.value })} aria-label="Your name" placeholder="Your name" /></label>
+          </div>
+          <div className="card">
+            <div className="row between"><div><div className="h3">Sleep goal</div><p className="small">Hours per night</p></div>
+              <div className="row gap3"><button type="button" className="iconbtn" aria-label="Decrease sleep goal" disabled={s.goal <= 6} onClick={() => set({ goal: Math.max(6, s.goal - 0.5) })} style={{ fontSize: 22, fontWeight: 500 }}>−</button><span className="num title-c" style={{ fontSize: 20, fontWeight: 700, minWidth: 54, textAlign: 'center' }}>{s.goal} h</span><button type="button" className="iconbtn" aria-label="Increase sleep goal" disabled={s.goal >= 10} onClick={() => set({ goal: Math.min(10, s.goal + 0.5) })} style={{ fontSize: 22, fontWeight: 500 }}>+</button></div></div>
+          </div>
+          <div className="card">
+            <h2 className="h3" style={{ marginBottom: 4 }}>Notifications</h2>
+            <div className="setrow"><span className="ico sm mute"><Icon name="bell" size={17} /></span><div className="grow"><div className="h3" style={{ fontSize: 15 }}>Bedtime reminder</div><p className="mute">A gentle nudge 30 minutes before bed</p></div><Toggle on={s.notif.bedtime} label="Bedtime reminder" onChange={(v) => set((p) => ({ notif: { ...p.notif, bedtime: v } }))} /></div>
+            <div className="setrow"><span className="ico sm mute"><Icon name="file" size={17} /></span><div className="grow"><div className="h3" style={{ fontSize: 15 }}>Weekly AI sleep report</div><p className="mute">Every Monday morning</p></div><Toggle on={s.notif.weekly} label="Weekly AI sleep report" onChange={(v) => set((p) => ({ notif: { ...p.notif, weekly: v } }))} /></div>
+          </div>
+          <div className="card-ai">
+            <div className="row between" style={{ marginBottom: 4 }}><h2 className="h3">AI &amp; privacy</h2><AIBadge /></div>
+            <div className="setrow"><span className="ico sm mute"><Icon name="shield" size={17} /></span><div className="grow"><div className="h3" style={{ fontSize: 15 }}>On-device analysis: on</div><p className="mute">Your audio is never recorded or uploaded</p></div><Toggle on disabled label="On-device analysis" onChange={() => {}} /></div>
+            <div className="setrow"><span className="ico sm mute"><Icon name="users" size={17} /></span><div className="grow"><div className="h3" style={{ fontSize: 15 }}>Share anonymous data to improve Shhh AI</div><p className="mute">Only noise labels, never audio</p></div><Toggle on={s.share} label="Share anonymous data" onChange={(v) => set({ share: v })} /></div>
+          </div>
+          <div className="card" style={{ padding: '6px 18px' }}>
+            <button type="button" className="setrow press" style={{ width: '100%' }} onClick={() => openSheet('privacy')}><span className="grow h3" style={{ fontSize: 15 }}>Privacy</span><Icon name="chevR" size={18} style={{ color: 'var(--mute)' }} /></button>
+            <button type="button" className="setrow press" style={{ width: '100%' }} onClick={() => openSheet('help')}><span className="grow h3" style={{ fontSize: 15 }}>Help</span><Icon name="chevR" size={18} style={{ color: 'var(--mute)' }} /></button>
+          </div>
+          <button type="button" className="btn btn-danger btn-block" onClick={() => openSheet('reset')}><Icon name="refresh" size={17} />Reset demo data</button>
+          <p className="mute" style={{ textAlign: 'center' }}>Shhh 1.0.0</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------- ROOT ------------------------------- */
+function Screens() {
+  const { s, ui } = useApp();
+  const [splash, setSplash] = useState(true);
+  return (
+    <>
+      {!s.onboarded ? <Onboarding /> : (
+        <>
+          {ui.tab === 'tonight' && <Tonight />}
+          {ui.tab === 'sleep' && <SleepTab />}
+          {ui.tab === 'noise' && <NoiseTab />}
+          {ui.tab === 'coach' && <CoachTab />}
+          {ui.tab === 'earplugs' && <EarplugsTab />}
+          <TabBar />
+        </>
+      )}
+      {s.onboarded && ui.profile && <ProfileScreen />}
+      {s.onboarded && ui.session && ui.phase !== 'analysing' && <SleepMode />}
+      {s.onboarded && ui.phase === 'analysing' && <Analysing />}
+      <SheetHost />
+      <ToastHost />
+      {splash && <Splash onDone={() => setSplash(false)} />}
+    </>
+  );
+}
+
+const STAR_SHADOWS = (() => {
+  const r = rng(7);
+  return Array.from({ length: 110 }, () => `${(r() * 100).toFixed(1)}vw ${(r() * 100).toFixed(1)}vh 0 ${r() < 0.2 ? 1 : 0}px rgba(237,235,245,${(0.2 + r() * 0.6).toFixed(2)})`).join(',');
+})();
+
+function useViewport() {
+  const [v, setV] = useState({ w: window.innerWidth, h: window.innerHeight });
+  useEffect(() => { const f = () => setV({ w: window.innerWidth, h: window.innerHeight }); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f); }, []);
+  return v;
+}
+
+function Stage() {
+  const { w, h } = useViewport();
+  const desktop = w >= 600 && h >= 520;
+  if (!desktop) return <div className="app"><Screens /></div>;
+  const sc = Math.min(1, (h - 76) / 868, (w - 24) / 414);
+  return (
+    <div className="stage">
+      <div className="glow" />
+      <div className="stars" style={{ boxShadow: STAR_SHADOWS }} aria-hidden="true" />
+      <div className="phone-box" style={{ width: 414 * sc, height: 868 * sc }}>
+        <div className="phone-scale" style={{ transform: `scale(${sc})` }}>
+          <div className="bezel">
+            <span className="btn-side" style={{ left: -4, top: 150, height: 30 }} /><span className="btn-side" style={{ left: -4, top: 210, height: 58 }} /><span className="btn-side" style={{ left: -4, top: 280, height: 58 }} /><span className="btn-side" style={{ right: -4, top: 230, height: 90 }} />
+            <div className="app framed"><Screens /><StatusBar /></div>
+          </div>
+        </div>
+      </div>
+      <p className="stage-cap">Shhh companion app — V1</p>
+    </div>
+  );
+}
+
+class ErrorBoundary extends React.Component {
+  constructor(p) { super(p); this.state = { err: false }; }
+  static getDerivedStateFromError() { return { err: true }; }
+  render() {
+    if (!this.state.err) return this.props.children;
+    return (
+      <div style={{ position: 'fixed', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 14, padding: 30, textAlign: 'center', background: '#0A0E1F' }}>
+        <Logo size={40} /><p className="body">Something went wrong. Your data is safe.</p>
+        <button type="button" className="btn btn-primary" onClick={() => window.location.reload()}>Reload Shhh</button>
+      </div>
+    );
+  }
+}
+
+/* PWA polish: PNG touch icon + manifest with an absolute start_url, built at runtime */
+(function enhanceInstall() {
+  try {
+    const iconLink = document.querySelector('link[rel="icon"]'), apple = document.querySelector('link[rel="apple-touch-icon"]'), man = document.querySelector('link[rel="manifest"]');
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const png = (size) => { const c = document.createElement('canvas'); c.width = c.height = size; c.getContext('2d').drawImage(img, 0, 0, size, size); return c.toDataURL('image/png'); };
+        apple.setAttribute('href', png(180));
+        const m = JSON.parse(decodeURIComponent(man.getAttribute('href').split(',').slice(1).join(',')));
+        if (/^https?:/.test(window.location.href)) m.start_url = window.location.href.split('#')[0];
+        m.icons = [{ src: png(192), sizes: '192x192', type: 'image/png', purpose: 'any' }, { src: png(512), sizes: '512x512', type: 'image/png', purpose: 'any' }, ...m.icons];
+        man.setAttribute('href', 'data:application/manifest+json,' + encodeURIComponent(JSON.stringify(m)));
+      } catch (e) { /* keep static versions */ }
+    };
+    img.src = iconLink.getAttribute('href');
+  } catch (e) { /* install polish is optional */ }
+})();
+
+ReactDOM.createRoot(document.getElementById('root')).render(<ErrorBoundary><Provider><Stage /></Provider></ErrorBoundary>);
+</script>
+</body>
+</html>
